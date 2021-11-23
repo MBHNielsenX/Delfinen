@@ -1,4 +1,4 @@
 package FileReaderWriter;
 
-public class writer {
+public class Writer {
 }
