@@ -14,7 +14,7 @@ public abstract class SwimmingClubMember {
     private int phoneNumber;
     private Date dateOfBirth;
 
-    public SwimmingClubMember(String name, String address, String email, int phoneNumber, int DD, int MM, int YYYY) {
+    public SwimmingClubMember(String name, String address, String email, int phoneNumber, String dateOfBirth) {
         Random rand = new Random();
         this.memberid = rand.nextInt(89999)+10000;
         while (existingMemberids.contains(this.memberid)){
@@ -27,7 +27,8 @@ public abstract class SwimmingClubMember {
         this.email = email;
         this.phoneNumber = phoneNumber;
 
-        this.dateOfBirth = new Date(YYYY,MM-1,DD);
+        String[] dateOfBirthArray = dateOfBirth.split("-");
+        this.dateOfBirth = new Date(Integer.parseInt(dateOfBirthArray[0]), Integer.parseInt(dateOfBirthArray[1])+1, Integer.parseInt(dateOfBirthArray[2]));
     }
 
     @Override
