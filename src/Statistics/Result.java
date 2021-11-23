@@ -1,4 +1,4 @@
 package Statistics;
 
-public class results {
+public class Result {
 }
