@@ -22,14 +22,14 @@ public class Chairman extends Admin{
         String email = GetUserInput.string();
         System.out.println("type in your phonenumber");
         int phoneNumber = GetUserInput.integer();
-        System.out.println("Type in your birthdate; (01-03-94)");
+        System.out.println("Type in your birthdate; (01-03-1994)");
         String birthdate = GetUserInput.string();
 
         String[] dateOfBirthArray = birthdate.split("-");
         int yearOfBirtDate = Integer.parseInt(dateOfBirthArray[2]);
         int monthOfBirthdate = Integer.parseInt(dateOfBirthArray[1])-1;
         int dayOfBirthdate = Integer.parseInt(dateOfBirthArray[0]);
-        Date date = new Date (yearOfBirtDate,monthOfBirthdate,dayOfBirthdate);
+        Date date = new Date (yearOfBirtDate-1900,monthOfBirthdate,dayOfBirthdate); // -1900 "magic number" for at få dateOfBirth til at passe.
 
         int howOldInYears = getAge(yearOfBirtDate,monthOfBirthdate,dayOfBirthdate);
         //int howOldInYears = getAge(94,02,01);
@@ -40,14 +40,17 @@ public class Chairman extends Admin{
             case 1:
                 Junior newJunior = new Junior(name,address,email,phoneNumber,date,true);
                 System.out.println("junior created");
+                System.out.println(newJunior);
                 break;
             case 2:
                 Senior newSenior = new Senior(name,address,email,phoneNumber,date,true);
                 System.out.println("senior created");
+                System.out.println(newSenior);
                 break;
             case 3:
                 Pensioner newPensioner = new Pensioner(name,address,email,phoneNumber,date,true);
                 System.out.println("pensioner created");
+                System.out.println(newPensioner);
                 break;
             default:
                 System.out.println("Fejl, prøv igen");
@@ -76,15 +79,13 @@ public class Chairman extends Admin{
 
         if (month > nowMonth) {
             result--;
-        }
-        else if (month == nowMonth) {
+        } else if (month == nowMonth) {
             int nowDay = now.getDate();
-
             if (day > nowDay) {
                 result--;
             }
         }
-        return (result-1900);
+        return (result);
     }
 
 }
