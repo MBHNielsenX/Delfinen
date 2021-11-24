@@ -1,6 +1,7 @@
 package Users;
 
 import FileReaderWriter.GetUserInput;
+import FileReaderWriter.Writer;
 import Members.Junior;
 import Members.Pensioner;
 import Members.Senior;
@@ -40,16 +41,19 @@ public class Chairman extends Admin{
             case 1:
                 Junior newJunior = new Junior(name,address,email,phoneNumber,date,true);
                 System.out.println("junior created");
+                Writer.write(newJunior);
                 System.out.println(newJunior);
                 break;
             case 2:
                 Senior newSenior = new Senior(name,address,email,phoneNumber,date,true);
                 System.out.println("senior created");
+                Writer.write(newSenior);
                 System.out.println(newSenior);
                 break;
             case 3:
                 Pensioner newPensioner = new Pensioner(name,address,email,phoneNumber,date,true);
                 System.out.println("pensioner created");
+                Writer.write(newPensioner);
                 System.out.println(newPensioner);
                 break;
             default:
