@@ -26,9 +26,6 @@ public abstract class SwimmingClubMember {
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
-
-        String[] dateOfBirthArray = dateOfBirth.split("-");
-        this.dateOfBirth = new Date(Integer.parseInt(dateOfBirthArray[2]), Integer.parseInt(dateOfBirthArray[1])-1, Integer.parseInt(dateOfBirthArray[0]));
     }
 
     @Override
