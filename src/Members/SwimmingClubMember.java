@@ -13,30 +13,78 @@ public abstract class SwimmingClubMember {
     private String email;
     private int phoneNumber;
     private Date dateOfBirth;
+    private int contingent;
+    private double arrears;
+    private boolean isActive;
 
-    public SwimmingClubMember(String name, String address, String email, int phoneNumber, String dateOfBirth) {
+
+    public SwimmingClubMember(String name, String address, String email, int phoneNumber, Date dateOfBirth, boolean isActive) {
         Random rand = new Random();
-        this.memberid = rand.nextInt(89999)+10000;
-        while (existingMemberids.contains(this.memberid)){
-            this.memberid = rand.nextInt(89999)+10000;
+        this.memberId = rand.nextInt(89999)+10000;
+        while (existingMemberIds.contains(this.memberId)){
+            this.memberId = rand.nextInt(89999)+10000;
         }
-        existingMemberids.add(this.memberid);
+        existingMemberIds.add(this.memberId);
 
+        this.isActive = isActive;
         this.name = name;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.contingent = 0;
+        this.arrears =0;
+        this.dateOfBirth = dateOfBirth;
     }
 
     @Override
     public String toString() {
         return "SwimmingClubMember{" +
-                "memberid=" + memberid +
+                "memberId=" + memberId +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
+    }
+
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public void setArrears(double arrears) {
+        this.arrears = arrears;
+    }
+
+    public void setContingent(int contingent) {
+        this.contingent = contingent;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getArrears() {
+        return arrears;
+    }
+
+    public int getContingent() {
+        return contingent;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 }
