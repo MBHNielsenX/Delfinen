@@ -71,7 +71,7 @@ public class Chairman extends Admin{
 
     }
 
-    public int getAge(int year, int month, int day) {
+    public int getAge(int year, int month, int day) { // method found @ https://stackoverflow.com/questions/1116123/how-do-i-calculate-someones-age-in-java
         Date now = new Date();
         int nowMonth = now.getMonth()+1;
         int nowYear = now.getYear()+1900;

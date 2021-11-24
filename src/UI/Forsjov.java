@@ -9,7 +9,6 @@ public class Forsjov {
 
         Chairman mads = new Chairman("Mads","hej","jens.dk");
 
-        Date date = new Date(1994,10,10);
         mads.createNewMember();
         //System.out.println(date);
 
