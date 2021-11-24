@@ -32,13 +32,23 @@ public class Chairman extends Admin{
         Date date = new Date (yearOfBirtDate,monthOfBirthdate,dayOfBirthdate);
 
         int howOldInYears = getAge(yearOfBirtDate,monthOfBirthdate,dayOfBirthdate);
+        //int howOldInYears = getAge(94,02,01);
         //Date date = new Date(Integer.parseInt(dateOfBirthArray[2]), Integer.parseInt(dateOfBirthArray[1])-1, Integer.parseInt(dateOfBirthArray[0]));
 
 
         switch(whichMembership(howOldInYears)){
-            case "junior": Junior newJunior = new Junior(name,address,email,phoneNumber,date,true);
-            case "senior": Senior newSenior = new Senior(name,address,email,phoneNumber,date,true);
-            case "pensionst": Pensioner newPensioner = new Pensioner(name,address,email,phoneNumber,date,true);
+            case 1:
+                Junior newJunior = new Junior(name,address,email,phoneNumber,date,true);
+                System.out.println("junior created");
+                break;
+            case 2:
+                Senior newSenior = new Senior(name,address,email,phoneNumber,date,true);
+                System.out.println("senior created");
+                break;
+            case 3:
+                Pensioner newPensioner = new Pensioner(name,address,email,phoneNumber,date,true);
+                System.out.println("pensioner created");
+                break;
             default:
                 System.out.println("Fejl, prøv igen");
         }
@@ -47,13 +57,13 @@ public class Chairman extends Admin{
 
     }
 
-    public String whichMembership(int age){
+    public int whichMembership(int age){
         if (age > 65){
-            return "pensionist";
+            return 3;
         } else if (age < 18) {
-            return "junior";
+            return 1;
         } else {
-            return "senior";
+            return 2;
         }
 
     }
@@ -74,7 +84,7 @@ public class Chairman extends Admin{
                 result--;
             }
         }
-        return result;
+        return (result-1900);
     }
 
 }

@@ -11,9 +11,7 @@ public class Forsjov {
 
         Chairman mads = new Chairman("Mads","hej","jens.dk");
 
-        //mads.createNewMember();
-
-
+        mads.createNewMember();
 
 
     }

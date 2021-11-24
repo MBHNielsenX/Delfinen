@@ -24,7 +24,7 @@ public class Writer {
         String dateOfBirth = formatter.format(member.getDateOfBirth());
 
         String memberInfo =
-                "Member ID: " + String.valueOf(member.getMemberid()) + "\n" +
+                "Member ID: " + String.valueOf(member.getMemberId()) + "\n" +
                 "Name: " +member.getName() + "\n" +
                 "Address: " + member.getAddress() + "\n" +
                 "Email: " + member.getEmail() + "\n" +
