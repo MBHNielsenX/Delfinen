@@ -14,6 +14,31 @@ public abstract class SwimmingClubMember {
     private int phoneNumber;
     private Date dateOfBirth;
 
+    public int getMemberid() {
+        return memberid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+
     public SwimmingClubMember(String name, String address, String email, int phoneNumber, String dateOfBirth) {
         Random rand = new Random();
         this.memberid = rand.nextInt(89999)+10000;
@@ -29,6 +54,9 @@ public abstract class SwimmingClubMember {
 
         String[] dateOfBirthArray = dateOfBirth.split("-");
         this.dateOfBirth = new Date(Integer.parseInt(dateOfBirthArray[2]), Integer.parseInt(dateOfBirthArray[1])-1, Integer.parseInt(dateOfBirthArray[0]));
+
+
+
     }
 
     @Override
