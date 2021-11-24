@@ -1,5 +1,6 @@
 package Members;
 
+import FileReaderWriter.Reader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -90,5 +91,15 @@ public abstract class SwimmingClubMember {
 
     public static ArrayList<Integer> getExistingMemberIds() {
         return existingMemberIds;
+    }
+
+    public static void setExistingMemberIds() {
+        ArrayList<String[]> grabbedMemberIDS = Reader.grabMemberIDFromFile();
+        for (int i = 0; i < grabbedMemberIDS.size(); i++) {
+            String[] IDString = grabbedMemberIDS.get(i);
+            int IDInt = Integer.parseInt(IDString[1]);
+            existingMemberIds.add(IDInt);
+
+        }
     }
 }
