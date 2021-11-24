@@ -1,11 +1,10 @@
 package FileReaderWriter;
 
 import Members.SwimmingClubMember;
-
 import java.io.*;
 import java.text.Format;
 import java.text.SimpleDateFormat;
-
+import java.util.ArrayList;
 
 
 public class Writer {
@@ -24,7 +23,7 @@ public class Writer {
         String dateOfBirth = formatter.format(member.getDateOfBirth());
 
         String memberInfo =
-                "Member ID: " + String.valueOf(member.getMemberId()) + "\n" +
+                "ID: " + String.valueOf(member.getMemberid()) + "\n" +
                 "Name: " +member.getName() + "\n" +
                 "Address: " + member.getAddress() + "\n" +
                 "Email: " + member.getEmail() + "\n" +
