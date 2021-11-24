@@ -87,4 +87,8 @@ public abstract class SwimmingClubMember {
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
+
+    public static ArrayList<Integer> getExistingMemberIds() {
+        return existingMemberIds;
+    }
 }
