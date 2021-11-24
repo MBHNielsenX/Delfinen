@@ -3,7 +3,9 @@ package UI;
 import FileReaderWriter.Reader;
 import Members.Senior;
 import Users.Chairman;
-import FileReaderWriter.Writer;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 public class Forsjov {
     public static void main(String[] args) {
@@ -18,6 +20,7 @@ public class Forsjov {
         Reader.printMembersList();
         Reader.findMemberID();
 
+        mads.createNewMember();
 
 
     }
