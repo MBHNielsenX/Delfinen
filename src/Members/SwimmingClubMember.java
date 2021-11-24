@@ -71,4 +71,20 @@ public abstract class SwimmingClubMember {
     public int getContingent() {
         return contingent;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
 }
