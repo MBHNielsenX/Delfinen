@@ -1,9 +1,10 @@
 package FileReaderWriter;
 
+import Members.SwimmingClubMember;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Reader {
+public class Reader { //Mads
     /*
     public static void read() {
         try {
@@ -18,30 +19,12 @@ public class Reader {
     }
 
      */
-     static ArrayList<String> listOfMemberID() {
-        System.out.println("Enter the ID of the member you want to find: \n");
-        String memberID = String.valueOf(GetUserInput.integer());
-        ArrayList<String> IDOfMembers = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/FileReaderWriter/Members.csv"));
-            String currentLine;
-            while((currentLine = reader.readLine()) !=null)
-                if (currentLine.contains("ID")) {
-                    IDOfMembers.add(currentLine);
-                }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return IDOfMembers;
-    }
 
-    public static void findMemberID() {
-       ArrayList<String> IDMembers = listOfMemberID();
-        for (int i = 0; i < IDMembers.size(); i++) {
-            System.out.println(IDMembers.get(i));
-
-        }
+    public static void showListOfMemberID() {
+         ArrayList<Integer> allMemberID = new ArrayList<Integer>(SwimmingClubMember.getExistingMemberIds());
+         for (int i = 0; i < allMemberID.size(); i++) {
+             System.out.println(allMemberID.get(i));
+         }
     }
 
     public static void printMembersList() {
