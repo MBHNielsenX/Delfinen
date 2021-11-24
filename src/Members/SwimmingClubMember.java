@@ -5,9 +5,9 @@ import java.util.Date;
 import java.util.Random;
 
 public abstract class SwimmingClubMember {
-    private static ArrayList<Integer> existingMemberids = new ArrayList<>();
+    private static ArrayList<Integer> existingMemberIds = new ArrayList<>();
 
-    private int memberid;
+    private int memberId;
     private String name;
     private String address;
     private String email;

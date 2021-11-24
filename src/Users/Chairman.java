@@ -2,7 +2,7 @@ package Users;
 
 import FileReaderWriter.GetUserInput;
 import Members.Junior;
-import Members.Pensionist;
+import Members.Pensioner;
 import Members.Senior;
 
 import java.util.Date;
@@ -36,20 +36,14 @@ public class Chairman extends Admin{
 
 
         switch(whichMembership(howOldInYears)){
-            case "junior": Junior newJunior = new Junior(name,address,email,phoneNumber,date);
-            case "senior": Senior newSenior = new Senior(name,address,email,phoneNumber,date);
-            case "pensionst": Pensionist newPensionist = new Pensionist(name,address,email,phoneNumber,date);
+            case "junior": Junior newJunior = new Junior(name,address,email,phoneNumber,date,true);
+            case "senior": Senior newSenior = new Senior(name,address,email,phoneNumber,date,true);
+            case "pensionst": Pensioner newPensioner = new Pensioner(name,address,email,phoneNumber,date,true);
             default:
                 System.out.println("Fejl, prøv igen");
         }
 
 
-
-
-
-        Junior newJunior = new Junior(name,address,email,phoneNumber,birthdate);
-
-        System.out.println(newJunior);
 
     }
 

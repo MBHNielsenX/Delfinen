@@ -10,16 +10,8 @@ public class Forsjov {
     public static void main(String[] args) {
 
         Chairman mads = new Chairman("Mads","hej","jens.dk");
-        Senior jens = new Senior("Jens Ryge","Vølundsgade 4","jens@politiken.dk",10203040,"10-5-96");
 
         //mads.createNewMember();
-        System.out.println(jens.getDateOfBirth().toString());
-
-        Writer.write(jens);
-        //mads.createNewMember();
-        Date date = new Date(120,10,20);
-        Date dateTest = new Date(120,10,20);
-        Date newDate = new Date();
 
 
 
