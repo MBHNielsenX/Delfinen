@@ -18,24 +18,24 @@ public class Competition {
     }
 
     public static void createNewCompetition() {
-        System.out.println("type in time of event: (01-03-1994");
-        String name = GetUserInput.string();
-        System.out.println("Type in your address");
-        String address = GetUserInput.string();
-        System.out.println("type in your email");
-        String email = GetUserInput.string();
-        System.out.println("type in your phonenumber");
-        int phoneNumber = GetUserInput.integer();
-        System.out.println("Type in your birthdate; (01-03-1994)");
-        String birthdate = GetUserInput.string();
+        System.out.println("Type in time of event: (hh-mm-dd-MM-yyyy");
+        String timeOfEvent = GetUserInput.string();
+        System.out.println("Type in stroke type: ");
+        String stroke = GetUserInput.string();
+        System.out.println("Type in distance :");
+        int distance = GetUserInput.integer();
 
         //Date date = convertToDate(birthdate);
 
-        String[] dateOfBirthArray = birthdate.split("-");
-        int yearOfBirtDate = Integer.parseInt(dateOfBirthArray[2]);
-        int monthOfBirthdate = Integer.parseInt(dateOfBirthArray[1])-1;
-        int dayOfBirthdate = Integer.parseInt(dateOfBirthArray[0]);
+        /* Continue
+        String[] dateOfEventArray = timeOfEvent.split("-");
+        int yearOfEvent = Integer.parseInt(dateOfBirthArray[2]);
+        int monthOfEvent = Integer.parseInt(dateOfBirthArray[1])-1;
+        int dayOfEvent = Integer.parseInt(dateOfBirthArray[0]);
+        int hourOfEvent = Integer.parseInt(hour)
         Date date = new Date (yearOfBirtDate-1900,monthOfBirthdate,dayOfBirthdate);
+
+         */
 
     }
 
