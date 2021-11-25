@@ -4,9 +4,11 @@ import FileReaderWriter.GetUserInput;
 import FileReaderWriter.Writer;
 import Members.Junior;
 import Members.Pensioner;
+import Members.PotentialMember;
 import Members.Senior;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.Period;
 
 
 public class Chairman extends Admin{
@@ -14,69 +16,69 @@ public class Chairman extends Admin{
         super(userName, password, email);
     }
 
-    public static void createNewMember(){
-        System.out.println("type in your name");
-        String name = GetUserInput.string();
-        System.out.println("Type in your address");
-        String address = GetUserInput.string();
-        System.out.println("type in your email");
-        String email = GetUserInput.string();
-        System.out.println("type in your phonenumber");
-        int phoneNumber = GetUserInput.integer();
-        System.out.println("Type in your birthdate; (01-03-1994)");
-        String birthdate = GetUserInput.string();
+    public void createNewMember(){
+        PotentialMember currentNember = newMember();
 
-        //Date date = convertToDate(birthdate);
+        LocalDate date = convertToDate(currentNember.getBirthdate());
 
-        String[] dateOfBirthArray = birthdate.split("-");
-        int yearOfBirtDate = Integer.parseInt(dateOfBirthArray[2]);
-        int monthOfBirthdate = Integer.parseInt(dateOfBirthArray[1])-1;
-        int dayOfBirthdate = Integer.parseInt(dateOfBirthArray[0]);
-        Date date = new Date (yearOfBirtDate-1900,monthOfBirthdate,dayOfBirthdate); // -1900 "magic number" for at få dateOfBirth til at passe.
-
-
-
-        int howOldInYears = getAge(yearOfBirtDate,monthOfBirthdate,dayOfBirthdate);
+        int howOldInYears = getAge(convertToDate(currentNember.getBirthdate()));
 
         switch (whichMembership(howOldInYears)) {
             case 1 -> {
-                Junior newJunior = new Junior(name, address, email, phoneNumber, date, true);
-                System.out.println("junior created");
+                Junior newJunior = new Junior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date,true);
                 newJunior.setCompetitive(isNewMemberCompetitive());
+                System.out.println(newJunior.getName()+" blev oprettet i systemet, med medlems ID: "+newJunior.getMemberId());
                 Writer.write(newJunior);
-                System.out.println(newJunior);
             }
             case 2 -> {
-                Senior newSenior = new Senior(name, address, email, phoneNumber, date, true);
-                System.out.println("senior created");
+                Senior newSenior = new Senior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 newSenior.setCompetitive(isNewMemberCompetitive());
+                System.out.println(newSenior.getName()+" blev oprettet i systemet, med medlems ID: "+newSenior.getMemberId());
                 Writer.write(newSenior);
-                System.out.println(newSenior);
             }
             case 3 -> {
-                Pensioner newPensioner = new Pensioner(name, address, email, phoneNumber, date, true);
-                System.out.println("pensioner created");
+                Pensioner newPensioner = new Pensioner(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
+                System.out.println(newPensioner.getName()+" blev oprettet i systemet, med medlems ID: "+newPensioner.getMemberId());
                 Writer.write(newPensioner);
-                System.out.println(newPensioner);
             }
             default -> System.out.println("Fejl, prøv igen");
         }
     }
 
-    public static Date convertToDate (String birthdate){
+    public PotentialMember newMember(){
+        System.out.println("Velkommen til oprettelsessystemet!");
+        System.out.println("Indtast det nye medlems navn.");
+        String name = GetUserInput.string();
+        System.out.println("Indtast det nye medlems adresse.");
+        String address = GetUserInput.string();
+        System.out.println("Indtast det nye medlems email.");
+        String email = GetUserInput.string();
+        System.out.println("Indtast det nye medlems telefonnummer.");
+        int phoneNumber = GetUserInput.integer();
+        System.out.println("Indtast det nye medlems fødselsdato; (01-03-1994)");
+        String birthdate = GetUserInput.string();
+        return new PotentialMember(name, address,email,phoneNumber,birthdate);
+    }
+
+    public LocalDate convertToDate (String birthdate){
         String[] dateOfBirthArray = birthdate.split("-");
         int yearOfBirtDate = Integer.parseInt(dateOfBirthArray[2]);
-        int monthOfBirthdate = Integer.parseInt(dateOfBirthArray[1])-1;
+        int monthOfBirthdate = Integer.parseInt(dateOfBirthArray[1]);
         int dayOfBirthdate = Integer.parseInt(dateOfBirthArray[0]);
-        getAge(yearOfBirtDate,monthOfBirthdate,dayOfBirthdate);
-        return new Date (yearOfBirtDate-1900,monthOfBirthdate,dayOfBirthdate);
+        return LocalDate.of(yearOfBirtDate,monthOfBirthdate,dayOfBirthdate);
+    }
+
+    public static int getAge(LocalDate birthdate){
+        LocalDate currentDate = LocalDate.now();
+        return Period.between(birthdate,currentDate).getYears();
     }
 
     public static boolean isNewMemberCompetitive() {
-        System.out.println("Does the new member want to be competitive?\n1 for yes, 2 for no.");
+        System.out.println("Ønsker det nye medlem at blive oprettet som konkurrencesvømmer??\n1 for ja, 2 for nej.");
         int userInput = GetUserInput.integer();
         return userInput == 1;
     }
+    
     public static int whichMembership(int age){
         if (age > 65){
             return 3;
@@ -87,22 +89,4 @@ public class Chairman extends Admin{
         }
 
     }
-
-    public static int getAge(int year, int month, int day) { // method found @ https://stackoverflow.com/questions/1116123/how-do-i-calculate-someones-age-in-java
-        Date now = new Date();
-        int nowMonth = now.getMonth()+1;
-        int nowYear = now.getYear()+1900;
-        int result = nowYear - year;
-
-        if (month > nowMonth) {
-            result--;
-        } else if (month == nowMonth) {
-            int nowDay = now.getDate();
-            if (day > nowDay) {
-                result--;
-            }
-        }
-        return (result);
-    }
-
 }

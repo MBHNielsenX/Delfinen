@@ -4,7 +4,7 @@ import Members.SwimmingClubMember;
 import java.io.*;
 import java.text.Format;
 import java.text.SimpleDateFormat;
-
+import java.time.format.DateTimeFormatter;
 
 
 public class Writer { //Mads
@@ -19,7 +19,8 @@ public class Writer { //Mads
     }
 
     public static String getMemberInfo(SwimmingClubMember member) {
-        Format formatter = new SimpleDateFormat("dd-MM-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        //Format formatter = new SimpleDateFormat("dd-MM-yyyy");
         String dateOfBirth = formatter.format(member.getDateOfBirth());
 
         String memberInfo =

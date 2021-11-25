@@ -2,6 +2,8 @@
 package Members;
 
 import FileReaderWriter.Reader;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -14,7 +16,7 @@ public abstract class SwimmingClubMember {
     private String address;
     private String email;
     private int phoneNumber;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private int contingent;
     private double arrears;
     private boolean isActive;
@@ -22,7 +24,7 @@ public abstract class SwimmingClubMember {
 
 
 
-    public SwimmingClubMember(String name, String address, String email, int phoneNumber, Date dateOfBirth, boolean isActive) {
+    public SwimmingClubMember(String name, String address, String email, int phoneNumber, LocalDate dateOfBirth, boolean isActive) {
         Random rand = new Random();
         this.memberId = rand.nextInt(89999)+10000;
         while (existingMemberIds.contains(this.memberId)){
@@ -61,7 +63,7 @@ public abstract class SwimmingClubMember {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phoneNumber +
-                ", dateOfBirth=" + dateOfBirth +
+                ", dateOfBirth=" + dateOfBirth + //Skal formatteres til at stå pænt
                 ", contingent=" + contingent +
                 ", arrears=" + arrears +
                 ", isActive=" + isActive +
@@ -105,7 +107,7 @@ public abstract class SwimmingClubMember {
         return phoneNumber;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
