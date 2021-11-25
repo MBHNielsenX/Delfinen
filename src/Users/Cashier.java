@@ -1,3 +1,4 @@
+//Jens' kode
 package Users;
 
 import Members.SwimmingClubMember;

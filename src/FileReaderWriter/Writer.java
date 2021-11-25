@@ -4,13 +4,13 @@ import Members.SwimmingClubMember;
 import java.io.*;
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 
 
 public class Writer { //Mads
     public static void write(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/FileReaderWriter/Members.csv",true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/MemberList/Members.csv",true));
             writer.write("_" + "\n" + getMemberInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
@@ -28,12 +28,24 @@ public class Writer { //Mads
                 "Address: " + member.getAddress() + "\n" +
                 "Email: " + member.getEmail() + "\n" +
                 "Phone number: " + String.valueOf(member.getPhoneNumber()) + "\n" +
-                "Date of birth: " + dateOfBirth;
+                "Date of birth: " + dateOfBirth + "\n" +
+                "Is member active: " + booleanToString(member.isActive()) + "\n" +
+                "Is member competitive: " + booleanToString(member.isCompetitive()) + "\n";
 
-        //Remember to input "isCompetitive
-        //isActive
         return memberInfo;
     }
+
+    public static String booleanToString(boolean trueOrFalse) {
+        String yesOrNo;
+        if (trueOrFalse == true) {
+            yesOrNo = "Yes";
+        } else {
+            yesOrNo = "No";
+        }
+
+        return yesOrNo;
+    }
+
 
 
 }

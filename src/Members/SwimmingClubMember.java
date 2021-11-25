@@ -1,3 +1,4 @@
+//Primært Jens' kode
 package Members;
 
 import FileReaderWriter.Reader;
@@ -93,6 +94,10 @@ public abstract class SwimmingClubMember {
 
     public Date getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    public boolean isActive() {
+        return isActive;
     }
 
     public boolean isCompetitive() {
