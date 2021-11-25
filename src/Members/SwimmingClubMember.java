@@ -48,6 +48,10 @@ public abstract class SwimmingClubMember {
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", dateOfBirth=" + dateOfBirth +
+                ", contingent=" + contingent +
+                ", arrears=" + arrears +
+                ", isActive=" + isActive +
+                ", isCompetitive=" + isCompetitive +
                 '}';
     }
 

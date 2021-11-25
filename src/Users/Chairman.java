@@ -41,12 +41,14 @@ public class Chairman extends Admin{
             case 1:
                 Junior newJunior = new Junior(name,address,email,phoneNumber,date,true);
                 System.out.println("junior created");
+                newJunior.setCompetitive(isNewMemberCompetitive());
                 Writer.write(newJunior);
                 System.out.println(newJunior);
                 break;
             case 2:
                 Senior newSenior = new Senior(name,address,email,phoneNumber,date,true);
                 System.out.println("senior created");
+                newSenior.setCompetitive(isNewMemberCompetitive());
                 Writer.write(newSenior);
                 System.out.println(newSenior);
                 break;
@@ -64,6 +66,11 @@ public class Chairman extends Admin{
 
     }
 
+    public boolean isNewMemberCompetitive() {
+        System.out.println("Does the new member want to be competitive?\n1 for yes, 2 for no.");
+        int userInput = GetUserInput.integer();
+        return userInput == 1;
+    }
     public int whichMembership(int age){
         if (age > 65){
             return 3;
