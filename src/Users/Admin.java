@@ -11,4 +11,11 @@ public abstract class Admin {
         this.email = email;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

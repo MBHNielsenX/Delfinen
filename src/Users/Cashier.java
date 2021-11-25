@@ -10,9 +10,9 @@ public class Cashier extends Admin{
         super(userName, password, email);
     }
 
-    public void checkArrears(int memberId, ArrayList<SwimmingClubMember> clubMembers){
+    public void checkArrears(int memberId, ArrayList<SwimmingClubMember> allMembers){
         SwimmingClubMember memberToCheck = null;
-        for (SwimmingClubMember member:clubMembers) {
+        for (SwimmingClubMember member:allMembers) {
             if (member.getMemberId()==memberId){
                 memberToCheck=member;
             }
@@ -20,17 +20,17 @@ public class Cashier extends Admin{
         System.out.println(memberToCheck.getName()+" is DKK "+memberToCheck.getArrears()+" in arrears.");
     }
 
-    public void checkEstimatedIncome(ArrayList<SwimmingClubMember> clubMembers){
+    public void checkEstimatedIncome(ArrayList<SwimmingClubMember> allMembers){
         int estimatedIncome=0;
-        for (SwimmingClubMember member:clubMembers) {
+        for (SwimmingClubMember member:allMembers) {
             estimatedIncome+=member.getContingent();
         }
         System.out.println("Estimated income for this year is DKK "+estimatedIncome+",-");
     }
 
-    public void registerContingentPayment(int memberId, double amountPayed, ArrayList<SwimmingClubMember> clubMembers){
+    public void registerContingentPayment(int memberId, double amountPayed, ArrayList<SwimmingClubMember> allMembers){
         SwimmingClubMember memberToCheck = null;
-        for (SwimmingClubMember member:clubMembers) {
+        for (SwimmingClubMember member:allMembers) {
             if (member.getMemberId()==memberId){
                 memberToCheck=member;
             }
