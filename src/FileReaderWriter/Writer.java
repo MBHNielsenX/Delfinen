@@ -4,13 +4,13 @@ import Members.SwimmingClubMember;
 import java.io.*;
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 
 
 public class Writer { //Mads
     public static void write(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/FileReaderWriter/Members.csv",true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/MemberList/Members.csv",true));
             writer.write("_" + "\n" + getMemberInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
