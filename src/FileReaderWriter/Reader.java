@@ -31,7 +31,7 @@ public class Reader { //Mads
         //Method that grabs the IDs form the .csv file and is used for the existingMemberIDs variable in SwimmingClubMember.java
         ArrayList<String[]> grabbedIDFromFile = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/MemberList/Members.csv"));
+            BufferedReader reader = new BufferedReader(new FileReader("src/Statistics.MemberList/Members.csv"));
             String currentLine;
             while((currentLine = reader.readLine()) !=null)
                 if (currentLine.contains("ID")) {
@@ -50,7 +50,7 @@ public class Reader { //Mads
 
     public static void printMembersList() {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/MemberList/Members.csv"));
+            BufferedReader reader = new BufferedReader(new FileReader("src/Statistics.MemberList/Members.csv"));
             String line;
             System.out.println();
             while((line = reader.readLine()) !=null)

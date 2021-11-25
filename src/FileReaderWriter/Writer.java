@@ -10,8 +10,8 @@ import java.text.SimpleDateFormat;
 public class Writer { //Mads
     public static void write(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/MemberList/Members.csv",true));
-            writer.write("_" + "\n" + getMemberInfo(member) + "\n");
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics.MemberList/Members.csv",true));
+            writer.write(getMemberInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,12 +36,4 @@ public class Writer { //Mads
         //isActive
         return memberInfo;
     }
-
-    public static String booleanToString() {
-
-        return null;
-    }
-
-
-
 }
