@@ -28,18 +28,22 @@ public class Writer { //Mads
                 "Address: " + member.getAddress() + "\n" +
                 "Email: " + member.getEmail() + "\n" +
                 "Phone number: " + String.valueOf(member.getPhoneNumber()) + "\n" +
-                "Date of birth: " + dateOfBirth +
-                "Is member competitive " + Boolean.toString(member.isActive()) + "\n" +
-                "Is member competitive " + Boolean.toString(member.isCompetitive());
+                "Date of birth: " + dateOfBirth + "\n" +
+                "Is member active: " + booleanToString(member.isActive()) + "\n" +
+                "Is member competitive: " + booleanToString(member.isCompetitive()) + "\n";
 
-        //Remember to input "isCompetitive
-        //isActive
         return memberInfo;
     }
 
-    public static String booleanToString() {
+    public static String booleanToString(boolean trueOrFalse) {
+        String yesOrNo;
+        if (trueOrFalse == true) {
+            yesOrNo = "Yes";
+        } else {
+            yesOrNo = "No";
+        }
 
-        return null;
+        return yesOrNo;
     }
 
 
