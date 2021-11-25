@@ -12,7 +12,7 @@ public class Forsjov {
 
         mads.createNewMember();
         //mads.createNewMember();
-
+        mads.createNewMember();
 
     }
 }
