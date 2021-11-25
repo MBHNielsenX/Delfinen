@@ -17,9 +17,9 @@ public class Main {
 
     public void giveRespectiveMenuOptions(int userNumber, Admin[] users){
         switch(userNumber){
-            case 0 -> getChairmanMenu(users);
-            case 1 -> getCashierMenu(users);
-            case 2 -> getCoachMenu(users);
+            case 1 -> getChairmanMenu(users);
+            case 2 -> getCashierMenu(users);
+            case 3 -> getCoachMenu(users);
             }
         }
 
