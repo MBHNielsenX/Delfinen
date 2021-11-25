@@ -1,3 +1,4 @@
+//Primært Jens' kode
 package Members;
 
 import FileReaderWriter.Reader;
