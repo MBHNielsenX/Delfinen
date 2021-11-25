@@ -95,6 +95,10 @@ public abstract class SwimmingClubMember {
         return dateOfBirth;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
     public boolean isCompetitive() {
         return isCompetitive;
     }
