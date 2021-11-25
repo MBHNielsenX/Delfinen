@@ -4,8 +4,6 @@ import FileReaderWriter.Reader;
 import Members.Senior;
 import Users.Chairman;
 
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,9 +12,9 @@ public class Forsjov {
         Chairman mads = new Chairman("Mads","hej","jens.dk");
 
 
+        //mads.createNewMember();
+        //mads.createNewMember();
         mads.createNewMember();
-        //mads.createNewMember();
-        //mads.createNewMember();
 
     }
 }
