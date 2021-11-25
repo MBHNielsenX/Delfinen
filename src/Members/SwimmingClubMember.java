@@ -1,5 +1,6 @@
 package Members;
 
+import FileReaderWriter.Reader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -16,6 +17,8 @@ public abstract class SwimmingClubMember {
     private int contingent;
     private double arrears;
     private boolean isActive;
+    private boolean isCompetitive = false;
+
 
 
     public SwimmingClubMember(String name, String address, String email, int phoneNumber, Date dateOfBirth, boolean isActive) {
@@ -88,7 +91,25 @@ public abstract class SwimmingClubMember {
         return dateOfBirth;
     }
 
+    public boolean isCompetitive() {
+        return isCompetitive;
+    }
+
+    public void setCompetitive(boolean competitive) {
+        isCompetitive = competitive;
+    }
+
     public static ArrayList<Integer> getExistingMemberIds() {
         return existingMemberIds;
+    }
+
+    public static void setExistingMemberIds() {
+        ArrayList<String[]> grabbedMemberIDS = Reader.grabMemberIDFromFile();
+        for (int i = 0; i < grabbedMemberIDS.size(); i++) {
+            String[] IDString = grabbedMemberIDS.get(i);
+            int IDInt = Integer.parseInt(IDString[1]);
+            existingMemberIds.add(IDInt);
+
+        }
     }
 }
