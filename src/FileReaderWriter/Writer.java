@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 public class Writer { //Mads
     public static void write(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics.MemberList/Members.csv",true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics/MemberList/Members.csv",true));
             writer.write(getMemberInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
@@ -29,6 +29,8 @@ public class Writer { //Mads
                 "Email: " + member.getEmail() + "\n" +
                 "Phone number: " + String.valueOf(member.getPhoneNumber()) + "\n" +
                 "Date of birth: " + dateOfBirth + "\n" +
+                "Contingent: " + member.getContingent() + "\n" +
+                "Arrears: " + member.getArrears() + "\n" +
                 "Is member active: " + booleanToString(member.isActive()) + "\n" +
                 "Is member competitive: " + booleanToString(member.isCompetitive()) + "\n";
 

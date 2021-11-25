@@ -13,13 +13,15 @@ public class Main {
                 new Cashier("Jens", "nej", "jens.dk"),
                 new Coach("Mikkel", "dig", "jens.dk")
         };
+
+        giveRespectiveMenuOptions(logInSequence(users),users);
     }
 
-    public void giveRespectiveMenuOptions(int userNumber, Admin[] users){
+    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users){
         switch(userNumber){
-            case 1 -> getChairmanMenu(users);
-            case 2 -> getCashierMenu(users);
-            case 3 -> getCoachMenu(users);
+            case 0 -> getChairmanMenu(users);
+            case 1 -> getCashierMenu(users);
+            case 2 -> getCoachMenu(users);
             }
         }
 
@@ -47,7 +49,7 @@ public class Main {
         return userNumber;
     }
 
-    public void getChairmanMenu(Admin[] users){
+    public static void getChairmanMenu(Admin[] users){
         Chairman cn = (Chairman) users[0];
         int userChoice = GetUserInput.menu(1);
         switch (userChoice){
@@ -55,7 +57,7 @@ public class Main {
         }
         cn.createNewMember();
     }
-    public void getCashierMenu(Admin[] users){
+    public static void getCashierMenu(Admin[] users){
         Cashier cr = (Cashier) users[1];
         int userChoice = GetUserInput.menu(3);
         switch (userChoice){
@@ -64,7 +66,7 @@ public class Main {
             //case 3 -> cr.checkEstimatedIncome();
         }
     }
-    public void getCoachMenu(Admin[] users){
+    public static void getCoachMenu(Admin[] users){
         Coach ch = (Coach) users[2];
         int userChoice = GetUserInput.menu(3);
         switch (userChoice){

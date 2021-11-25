@@ -14,7 +14,7 @@ public class Chairman extends Admin{
         super(userName, password, email);
     }
 
-    public void createNewMember(){
+    public static void createNewMember(){
         System.out.println("type in your name");
         String name = GetUserInput.string();
         System.out.println("Type in your address");
@@ -63,7 +63,7 @@ public class Chairman extends Admin{
         }
     }
 
-    public Date convertToDate (String birthdate){
+    public static Date convertToDate (String birthdate){
         String[] dateOfBirthArray = birthdate.split("-");
         int yearOfBirtDate = Integer.parseInt(dateOfBirthArray[2]);
         int monthOfBirthdate = Integer.parseInt(dateOfBirthArray[1])-1;
@@ -72,12 +72,12 @@ public class Chairman extends Admin{
         return new Date (yearOfBirtDate-1900,monthOfBirthdate,dayOfBirthdate);
     }
 
-    public boolean isNewMemberCompetitive() {
+    public static boolean isNewMemberCompetitive() {
         System.out.println("Does the new member want to be competitive?\n1 for yes, 2 for no.");
         int userInput = GetUserInput.integer();
         return userInput == 1;
     }
-    public int whichMembership(int age){
+    public static int whichMembership(int age){
         if (age > 65){
             return 3;
         } else if (age < 18) {
@@ -88,7 +88,7 @@ public class Chairman extends Admin{
 
     }
 
-    public int getAge(int year, int month, int day) { // method found @ https://stackoverflow.com/questions/1116123/how-do-i-calculate-someones-age-in-java
+    public static int getAge(int year, int month, int day) { // method found @ https://stackoverflow.com/questions/1116123/how-do-i-calculate-someones-age-in-java
         Date now = new Date();
         int nowMonth = now.getMonth()+1;
         int nowYear = now.getYear()+1900;

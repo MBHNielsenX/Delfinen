@@ -40,6 +40,19 @@ public abstract class SwimmingClubMember {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public SwimmingClubMember(int memberId, String name, String address, String email, int phoneNumber, Date dateOfBirth, int contingent, double arrears, boolean isActive, boolean isCompetitive) {
+        this.memberId = memberId;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.dateOfBirth = dateOfBirth;
+        this.contingent = contingent;
+        this.arrears = arrears;
+        this.isActive = isActive;
+        this.isCompetitive = isCompetitive;
+    }
+
     @Override
     public String toString() {
         return "SwimmingClubMember{" +
@@ -113,12 +126,11 @@ public abstract class SwimmingClubMember {
     }
 
     public static void setExistingMemberIds() {
-        ArrayList<String[]> grabbedMemberIDS = Reader.grabMemberIDFromFile();
-        for (int i = 0; i < grabbedMemberIDS.size(); i++) {
-            String[] IDString = grabbedMemberIDS.get(i);
-            int IDInt = Integer.parseInt(IDString[1]);
-            existingMemberIds.add(IDInt);
-
+        ArrayList<String> grabbedMemberIDS = Reader.getMemberIdsFromFile();
+        for (String currentId:grabbedMemberIDS) {
+            String[] currentIdArray = currentId.split(":");
+            int idInt = Integer.parseInt(currentIdArray[1]);
+            existingMemberIds.add(idInt);
         }
     }
 }
