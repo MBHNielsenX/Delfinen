@@ -30,7 +30,8 @@ public class Writer { //Mads
                 "Phone number: " + String.valueOf(member.getPhoneNumber()) + "\n" +
                 "Date of birth: " + dateOfBirth;
 
-
+        //Remember to input "isCompetitive
+        //isActive
         return memberInfo;
     }
 
