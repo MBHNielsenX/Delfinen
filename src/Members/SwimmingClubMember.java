@@ -17,6 +17,8 @@ public abstract class SwimmingClubMember {
     private int contingent;
     private double arrears;
     private boolean isActive;
+    private boolean isCompetitive = false;
+
 
 
     public SwimmingClubMember(String name, String address, String email, int phoneNumber, Date dateOfBirth, boolean isActive) {

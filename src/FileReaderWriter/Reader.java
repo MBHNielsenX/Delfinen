@@ -28,6 +28,7 @@ public class Reader { //Mads
     }
 
     public static ArrayList<String[]> grabMemberIDFromFile() {
+        //Method that grabs the IDs form the .csv file and is used for the existingMemberIDs variable in SwimmingClubMember.java
         ArrayList<String[]> grabbedIDFromFile = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/FileReaderWriter/Members.csv"));
