@@ -18,7 +18,7 @@ public class Cashier extends Admin{
                 memberToCheck=member;
             }
         }
-        System.out.println(memberToCheck.getName()+" is DKK "+memberToCheck.getArrears()+" in arrears.");
+        System.out.println("\n"+memberToCheck.getName()+" er DKK "+memberToCheck.getArrears()+" i restance.");
     }
 
     public void checkEstimatedIncome(ArrayList<SwimmingClubMember> allMembers){
@@ -26,7 +26,7 @@ public class Cashier extends Admin{
         for (SwimmingClubMember member:allMembers) {
             estimatedIncome+=member.getContingent();
         }
-        System.out.println("Estimated income for this year is DKK "+estimatedIncome+",-");
+        System.out.println("\nEstimeret indkomst for i år er DKK "+estimatedIncome+",-");
     }
 
     public void registerContingentPayment(int memberId, double amountPayed, ArrayList<SwimmingClubMember> allMembers){
@@ -36,5 +36,8 @@ public class Cashier extends Admin{
                 memberToCheck=member;
             }
         }
+        memberToCheck.setArrears(memberToCheck.getArrears()-amountPayed);
+        System.out.println("Betaling af DKK "+amountPayed+" er registreret for medlemmet, med medlemsID: "+memberId);
+        System.out.println("Restbalance er DKK "+memberToCheck.getArrears());
     }
 }

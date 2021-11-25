@@ -24,6 +24,11 @@ public class GetUserInput {
         return optionChoice;
     }
 
+    public static double doubl(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextDouble();
+    }
+
 
 
 }
