@@ -6,8 +6,8 @@ Phone number: 28683398
 Date of birth: 10-05-1998
 Contingent: 1600
 Arrears: 1600.0
-Is member active: Yes
-Is member competitive: No
+Is member active: True
+Is member competitive: False
 
 ID: 72960
 Name: Mikkel Meerwaldt Jørgensen
@@ -17,6 +17,6 @@ Phone number: 30550998
 Date of birth: 01-03-1994
 Contingent: 1600
 Arrears: 1600.0
-Is member active: Yes
-Is member competitive: Yes
+Is member active: True
+Is member competitive: True
 

@@ -1,11 +1,9 @@
+//Mikkels kode
 package Users;
 
 import FileReaderWriter.GetUserInput;
 import FileReaderWriter.Writer;
-import Members.Junior;
-import Members.Pensioner;
-import Members.PotentialMember;
-import Members.Senior;
+import Members.*;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -60,7 +58,7 @@ public class Chairman extends Admin{
         return new PotentialMember(name, address,email,phoneNumber,birthdate);
     }
 
-    public LocalDate convertToDate (String birthdate){
+    public static LocalDate convertToDate (String birthdate){
         String[] dateOfBirthArray = birthdate.split("-");
         int yearOfBirtDate = Integer.parseInt(dateOfBirthArray[2]);
         int monthOfBirthdate = Integer.parseInt(dateOfBirthArray[1]);

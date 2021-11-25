@@ -5,7 +5,6 @@ import FileReaderWriter.Reader;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Random;
 
 public abstract class SwimmingClubMember {
@@ -42,7 +41,7 @@ public abstract class SwimmingClubMember {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public SwimmingClubMember(int memberId, String name, String address, String email, int phoneNumber, Date dateOfBirth, int contingent, double arrears, boolean isActive, boolean isCompetitive) {
+    public SwimmingClubMember(int memberId, String name, String address, String email, int phoneNumber, LocalDate dateOfBirth, int contingent, double arrears, boolean isActive, boolean isCompetitive) {
         this.memberId = memberId;
         this.name = name;
         this.address = address;
@@ -128,8 +127,8 @@ public abstract class SwimmingClubMember {
     }
 
     public static void setExistingMemberIds() {
-        ArrayList<String> grabbedMemberIDS = Reader.getMemberIdsFromFile();
-        for (String currentId:grabbedMemberIDS) {
+        ArrayList<String> grabbedMemberIds = Reader.getMemberIdsFromFile();
+        for (String currentId:grabbedMemberIds) {
             String[] currentIdArray = currentId.split(":");
             int idInt = Integer.parseInt(currentIdArray[1]);
             existingMemberIds.add(idInt);

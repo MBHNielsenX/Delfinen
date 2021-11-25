@@ -1,3 +1,4 @@
+//Mikkels kode
 package Members;
 
 public class PotentialMember {
