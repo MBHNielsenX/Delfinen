@@ -26,38 +26,36 @@ public class Chairman extends Admin{
         switch (whichMembership(howOldInYears)) {
             case 1 -> {
                 Junior newJunior = new Junior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date,true);
-                System.out.println("junior created");
                 newJunior.setCompetitive(isNewMemberCompetitive());
+                System.out.println(newJunior.getName()+" blev oprettet i systemet, med medlems ID: "+newJunior.getMemberId());
                 Writer.write(newJunior);
-                System.out.println(newJunior);
             }
             case 2 -> {
                 Senior newSenior = new Senior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
-                System.out.println("senior created");
                 newSenior.setCompetitive(isNewMemberCompetitive());
+                System.out.println(newSenior.getName()+" blev oprettet i systemet, med medlems ID: "+newSenior.getMemberId());
                 Writer.write(newSenior);
-                System.out.println(newSenior);
             }
             case 3 -> {
                 Pensioner newPensioner = new Pensioner(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
-                System.out.println("pensioner created");
+                System.out.println(newPensioner.getName()+" blev oprettet i systemet, med medlems ID: "+newPensioner.getMemberId());
                 Writer.write(newPensioner);
-                System.out.println(newPensioner);
             }
             default -> System.out.println("Fejl, prøv igen");
         }
     }
 
     public PotentialMember newMember(){
-        System.out.println("type in your name");
+        System.out.println("Velkommen til oprettelsessystemet!");
+        System.out.println("Indtast det nye medlems navn.");
         String name = GetUserInput.string();
-        System.out.println("Type in your address");
+        System.out.println("Indtast det nye medlems adresse.");
         String address = GetUserInput.string();
-        System.out.println("type in your email");
+        System.out.println("Indtast det nye medlems email.");
         String email = GetUserInput.string();
-        System.out.println("type in your phonenumber");
+        System.out.println("Indtast det nye medlems telefonnummer.");
         int phoneNumber = GetUserInput.integer();
-        System.out.println("Type in your birthdate; (01-03-1994)");
+        System.out.println("Indtast det nye medlems fødselsdato; (01-03-1994)");
         String birthdate = GetUserInput.string();
         return new PotentialMember(name, address,email,phoneNumber,birthdate);
     }
@@ -76,7 +74,7 @@ public class Chairman extends Admin{
     }
 
     public boolean isNewMemberCompetitive() {
-        System.out.println("Does the new member want to be competitive?\n1 for yes, 2 for no.");
+        System.out.println("Ønsker det nye medlem at blive oprettet som konkurrencesvømmer??\n1 for ja, 2 for nej.");
         int userInput = GetUserInput.integer();
         return userInput == 1;
     }

@@ -50,7 +50,7 @@ public abstract class SwimmingClubMember {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phoneNumber +
-                ", dateOfBirth=" + dateOfBirth +
+                ", dateOfBirth=" + dateOfBirth + //Skal formatteres til at stå pænt
                 ", contingent=" + contingent +
                 ", arrears=" + arrears +
                 ", isActive=" + isActive +
