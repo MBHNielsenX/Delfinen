@@ -91,6 +91,14 @@ public abstract class SwimmingClubMember {
         return dateOfBirth;
     }
 
+    public boolean isCompetitive() {
+        return isCompetitive;
+    }
+
+    public void setCompetitive(boolean competitive) {
+        isCompetitive = competitive;
+    }
+
     public static ArrayList<Integer> getExistingMemberIds() {
         return existingMemberIds;
     }
