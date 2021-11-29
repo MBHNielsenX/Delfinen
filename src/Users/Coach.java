@@ -8,7 +8,11 @@ public class Coach extends Admin{
         super(userName, password, email);
     }
 
-    public void registerSwimTime (){ // Vi skal bruge Svømmer (Navn, ID?), disciplin og tiden.
+    public static void registerSwimTime (){ // Vi skal bruge Svømmer (Navn, ID?), disciplin og tiden.
+        // String nameOfCompetition, int memberID, String memberName, double swimTime
+    }
+
+    public void displayAllCompetitiveSwimmers(){ // Viser navne og ID på alle konkurrencesvømmere
 
     }
 

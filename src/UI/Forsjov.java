@@ -1,6 +1,8 @@
 package UI;
 
+import Competitive.Competition;
 import FileReaderWriter.Writer;
+import Members.SwimmingClubMember;
 import Users.Chairman;
 
 import java.time.LocalDate;
