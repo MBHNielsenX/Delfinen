@@ -1,7 +1,7 @@
 package Users;
 
 import Competitive.Competition;
-import IO.GetUserInput;
+import IO.*;
 import Members.*;
 import Statistics.MemberHandler;
 
@@ -39,6 +39,8 @@ public class Coach extends Admin{
             System.out.println(stroke);
             System.out.println(placering);
              */
+
+            FileWriter.writeSeniorComp(currentMember);
 
             registerMore = registerMoreTimes();
         }
