@@ -11,8 +11,15 @@ public class GetUserInput {
     }
 
     public static int integer(){
-        Scanner scanner = new Scanner(System.in);
-        return Integer.parseInt(scanner.nextLine());
+        int userInput = 0;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            userInput =  Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Ugyldigt input. Indtast venligst et nummer: ");
+            return integer();
+        }
+        return userInput;
     }
 
     public static int menu(int amountOfOptions){

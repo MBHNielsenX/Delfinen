@@ -1,8 +1,7 @@
 package UI;
 
-import Competitive.Competition;
+import FileReaderWriter.GetUserInput;
 import FileReaderWriter.Writer;
-import Members.SwimmingClubMember;
 import Users.Chairman;
 
 import java.time.LocalDate;
@@ -15,5 +14,11 @@ import static FileReaderWriter.Reader.printMembersList;
 public class Forsjov {
     public static void main(String[] args) {
         System.out.println("Hello World");
+        ArrayList<String> memberIds = getMemberIdsFromFile();
+        for (String string:memberIds) {
+            System.out.println(string);
+
+        }
+        System.out.println(GetUserInput.integer());
     }
 }
