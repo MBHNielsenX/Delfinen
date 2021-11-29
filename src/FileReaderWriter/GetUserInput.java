@@ -1,7 +1,6 @@
 //Jens' kode
 package FileReaderWriter;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GetUserInput {
@@ -23,7 +22,7 @@ public class GetUserInput {
         return userInput;
     }
 
-    public static int menu(int amountOfOptions){ //Indfør try catch
+    public static int menu(int amountOfOptions){
         Scanner scanner = new Scanner(System.in);
         int optionChoice = Integer.parseInt(scanner.nextLine());
         while (optionChoice>amountOfOptions || optionChoice < 0){
@@ -31,12 +30,13 @@ public class GetUserInput {
             optionChoice = Integer.parseInt(scanner.nextLine());
         }
         return optionChoice;
-
     }
 
     public static double doubl(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextDouble();
     }
+
+
 
 }
