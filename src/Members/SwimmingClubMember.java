@@ -20,7 +20,10 @@ public abstract class SwimmingClubMember {
     private double arrears;
     private boolean isActive;
     private boolean isCompetitive = false;
-
+    private double butterflyTime;
+    private double backstrokeTime;
+    private double breaststrokeTime;
+    private double freestyleTime;
 
 
     public SwimmingClubMember(String name, String address, String email, int phoneNumber, LocalDate dateOfBirth, boolean isActive) {
@@ -126,8 +129,41 @@ public abstract class SwimmingClubMember {
         isActive = active;
     }
 
+    public void setButterflyTime(double butterflyTime) {
+        this.butterflyTime = butterflyTime;
+    }
+
+    public void setBackstrokeTime(double backstrokeTime) {
+        this.backstrokeTime = backstrokeTime;
+    }
+
+    public void setBreaststrokeTime(double breaststrokeTime) {
+        this.breaststrokeTime = breaststrokeTime;
+    }
+
+    public void setFreestyleTime(double freestyleTime) {
+        this.freestyleTime = freestyleTime;
+    }
+
+
     public static ArrayList<Integer> getExistingMemberIds() {
         return existingMemberIds;
+    }
+
+    public double getButterflyTime() {
+        return butterflyTime;
+    }
+
+    public double getBackstrokeTime() {
+        return backstrokeTime;
+    }
+
+    public double getBreaststrokeTime() {
+        return breaststrokeTime;
+    }
+
+    public double getFreestyleTime() {
+        return freestyleTime;
     }
 
     public static void addExistingMemberIdsToStaticArraylist() {

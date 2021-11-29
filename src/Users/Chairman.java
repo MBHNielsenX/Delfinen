@@ -25,14 +25,12 @@ public class Chairman extends Admin{
             case 1 -> {
                 Junior newJunior = new Junior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date,true);
                 newJunior.setCompetitive(isNewMemberCompetitive());
-                newCompetitive(newJunior);
                 System.out.println("\n"+newJunior.getName()+" blev oprettet i systemet, med medlems ID: "+newJunior.getMemberId());
                 FileWriter.write(newJunior);
             }
             case 2 -> {
                 Senior newSenior = new Senior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 newSenior.setCompetitive(isNewMemberCompetitive());
-                newCompetitive(newSenior);
                 System.out.println("\n"+newSenior.getName()+" blev oprettet i systemet, med medlems ID: "+newSenior.getMemberId());
                 FileWriter.write(newSenior);
             }
@@ -78,14 +76,6 @@ public class Chairman extends Admin{
         return userInput == 1;
     }
 
-
-    public static CompetitiveSwimmer newCompetitive(SwimmingClubMember member){
-        if (member.isCompetitive()){
-            return new CompetitiveSwimmer(member.getName(),member.getMemberId());
-        } else {
-            return null;
-        }
-    }
 
     public static int whichMembership(int age){
         if (age > 65){
