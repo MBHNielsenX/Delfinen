@@ -2,13 +2,12 @@
 package Users;
 
 import IO.FileWriter;
-import Members.SwimmingClubMember;
-import Statistics.MemberHandler;
+import Members.Base.SwimmingClubMember;
+import Members.MemberHandler;
 
 import java.util.ArrayList;
 
 public class Cashier extends Admin{
-
     public Cashier(String userName, String password, String email) {
         super(userName, password, email);
     }

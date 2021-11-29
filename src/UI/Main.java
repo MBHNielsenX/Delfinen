@@ -5,8 +5,7 @@ package UI;
 import Competitive.Competition;
 import IO.GetUserInput;
 import IO.FileReader;
-import Members.SwimmingClubMember;
-import Statistics.MemberHandler;
+import Members.Base.SwimmingClubMember;
 import Users.*;
 import java.util.ArrayList;
 
@@ -64,8 +63,8 @@ public class Main {
             System.out.println("\nRegistrer nyt medlem i Svømmeklubben Delfinen - Tast 1\tVis alle medlemmer - Tast 2\nForlad menu - Tast 3");
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
-                case 1 -> cn.createNewMember();
-                case 2 -> MemberHandler.printAllMembersNamesAndIds(allMembers);
+                case 1 -> cn.registerNewMember();
+                case 2 -> cn.printAllMembersNamesAndIds(allMembers);
             }
         }
     }

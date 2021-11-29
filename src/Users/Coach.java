@@ -3,7 +3,6 @@ package Users;
 import Competitive.Competition;
 
 public class Coach extends Admin{
-
     public Coach(String userName, String password, String email) {
         super(userName, password, email);
     }

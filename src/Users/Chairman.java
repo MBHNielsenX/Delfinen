@@ -4,9 +4,11 @@ package Users;
 import IO.GetUserInput;
 import IO.FileWriter;
 import Members.*;
+import Members.Base.*;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 
 
 public class Chairman extends Admin{
@@ -14,7 +16,7 @@ public class Chairman extends Admin{
         super(userName, password, email);
     }
 
-    public void createNewMember(){
+    public void registerNewMember(){
         PotentialMember currentNember = newMember();
 
         LocalDate date = convertToDate(currentNember.getBirthdate());
@@ -78,7 +80,6 @@ public class Chairman extends Admin{
         return userInput == 1;
     }
 
-
     public static CompetitiveSwimmer newCompetitive(SwimmingClubMember member){
         if (member.isCompetitive()){
             return new CompetitiveSwimmer(member.getName(),member.getMemberId());
@@ -96,5 +97,15 @@ public class Chairman extends Admin{
             return 2;
         }
 
+    }
+
+    public void printAllMembersNamesAndIds(ArrayList<SwimmingClubMember> allMembers){
+        int listNo=1;
+        for (SwimmingClubMember member:allMembers) {
+            System.out.println(listNo+". Medlems-Id: "+member.getMemberId());
+            System.out.println("Navn: "+member.getName());
+            System.out.println();
+            listNo++;
+        }
     }
 }

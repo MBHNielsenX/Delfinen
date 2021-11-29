@@ -1,8 +1,8 @@
 package Competitive;
 
 import IO.GetUserInput;
-import Members.SwimmingClubMember;
-import Statistics.MemberHandler;
+import Members.Base.SwimmingClubMember;
+import Members.MemberHandler;
 import Users.Chairman;
 
 import java.time.LocalDate;

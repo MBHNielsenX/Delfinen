@@ -1,7 +1,7 @@
 //Mads' kode
 package IO;
 
-import Members.SwimmingClubMember;
+import Members.Base.SwimmingClubMember;
 import java.io.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

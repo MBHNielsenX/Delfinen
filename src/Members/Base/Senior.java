@@ -1,5 +1,5 @@
 //Jens' kode
-package Members;
+package Members.Base;
 
 import java.time.LocalDate;
 

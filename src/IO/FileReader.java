@@ -1,6 +1,9 @@
 package IO;
 
-import Members.*;
+import Members.Base.Junior;
+import Members.Base.Pensioner;
+import Members.Base.Senior;
+import Members.Base.SwimmingClubMember;
 import Users.Chairman;
 
 import java.io.*;

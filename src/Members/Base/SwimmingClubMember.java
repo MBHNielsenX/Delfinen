@@ -1,5 +1,5 @@
 //Primært Jens' kode
-package Members;
+package Members.Base;
 
 import IO.FileReader;
 
