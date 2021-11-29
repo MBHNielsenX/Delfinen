@@ -1,16 +1,30 @@
 package Users;
 
+import Competitive.Competition;
+
 public class Coach extends Admin{
 
     public Coach(String userName, String password, String email) {
         super(userName, password, email);
     }
 
-    public void registerSwimTime (){
-        System.out.println("Fuck du hurtig brors.");
+    public static void registerSwimTime (){ // Vi skal bruge Svømmer (Navn, ID?), disciplin og tiden.
+        // String nameOfCompetition, int memberID, String memberName, double swimTime
+    }
+
+    public void displayAllCompetitiveSwimmers(){ // Viser navne og ID på alle konkurrencesvømmere
+
+    }
+
+    public void newCompetition(){
+        Competition.createNewCompetition();
     }
 
     public void topFiveResults(){
-        System.out.println("Mads' top 5 tider er; ");
+
+    }
+
+    public void isTopFive(){
+
     }
 }
