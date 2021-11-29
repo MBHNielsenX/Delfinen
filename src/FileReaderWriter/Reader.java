@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Reader {
-
     //Jens og Mikkels kode
     public static ArrayList<String> getAllMembersToArrayList(){
         ArrayList<String> memberData = new ArrayList<>();
@@ -30,7 +29,8 @@ public class Reader {
             e.printStackTrace();
         } return memberData;
     }
-    public static ArrayList<SwimmingClubMember> getExistingMembersArrayList(ArrayList<String> memberData) {
+
+    public static ArrayList<SwimmingClubMember> getExistingMembersFromCsvToArrayList(ArrayList<String> memberData) {
         ArrayList<SwimmingClubMember> existingMembers = new ArrayList<>();
 
         for (int i = 0; i < memberData.size(); i+=10) {

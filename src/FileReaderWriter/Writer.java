@@ -4,6 +4,7 @@ package FileReaderWriter;
 import Members.SwimmingClubMember;
 import java.io.*;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 
 public class Writer {
@@ -16,7 +17,6 @@ public class Writer {
             e.printStackTrace();
         }
     }
-
     public static String getMemberInfo(SwimmingClubMember member) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String dateOfBirth = formatter.format(member.getDateOfBirth());
@@ -31,5 +31,28 @@ public class Writer {
         "Arrears: " + member.getArrears() + "\n" +
         "Is member active: " + member.isActive() + "\n" +
         "Is member competitive: " + member.isCompetitive() + "\n";
+    }
+
+    //Jens
+    public static void updateMembersList(ArrayList<SwimmingClubMember> allMembers){
+        //Append set to false -> write nothing = wipe file
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics/MemberList/Members.csv"));
+            writer.write("");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Write new members to file
+        for (SwimmingClubMember member:allMembers) {
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics/MemberList/Members.csv",true));
+                writer.write(getMemberInfo(member) + "\n");
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
