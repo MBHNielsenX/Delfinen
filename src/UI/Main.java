@@ -2,7 +2,6 @@
 
 package UI;
 
-import Competitive.Competition;
 import IO.GetUserInput;
 import IO.FileReader;
 import Members.Base.SwimmingClubMember;
