@@ -122,6 +122,10 @@ public abstract class SwimmingClubMember {
         isCompetitive = competitive;
     }
 
+    public void setIsActive(boolean active){
+        isActive = active;
+    }
+
     public static ArrayList<Integer> getExistingMemberIds() {
         return existingMemberIds;
     }

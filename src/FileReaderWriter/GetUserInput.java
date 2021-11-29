@@ -14,6 +14,11 @@ public class GetUserInput {
         return Integer.parseInt(scanner.nextLine());
     }
 
+    public static double doubleInput(){
+        Scanner scanner = new Scanner(System.in);
+        return Double.parseDouble(scanner.nextLine());
+    }
+
     public static int menu(int amountOfOptions){
         Scanner scanner = new Scanner(System.in);
         int optionChoice = Integer.parseInt(scanner.nextLine());
