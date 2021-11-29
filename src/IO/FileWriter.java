@@ -38,10 +38,10 @@ public class FileWriter {
     public static String getCompetitiveInfo(SwimmingClubMember member) {
         return "ID : " + member.getMemberId() + "\n" +
                 "Name: " + member.getName() + "\n" +
-                "Butterfly: " + null + "\n" +
-                "Rygsvømmning: " + null + "\n" +
-                "Brystsvømmning: " + null + "\n" +
-                "Crawl: " + null + "\n";
+                "Butterfly: " + member.getButterflyTime() + "\n" +
+                "Rygsvømmning: " + member.getBackstrokeTime() + "\n" +
+                "Brystsvømmning: " + member.getBreaststrokeTime() + "\n" +
+                "Crawl: " + member.getFreestyleTime() + "\n";
     }
 
     public static String getMemberInfo(SwimmingClubMember member) {
