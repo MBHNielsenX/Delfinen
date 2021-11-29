@@ -36,7 +36,7 @@ public class GetUserInput {
         double userInput;
         try {
             Scanner scanner = new Scanner(System.in);
-            userInput = scanner.nextDouble();
+            userInput = Double.parseDouble(scanner.nextLine());
         } catch (NumberFormatException e) {
             System.out.println("Ugyldigt input. Indtast venligst et nummer: ");
             return doubl();
