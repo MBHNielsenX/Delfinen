@@ -27,19 +27,19 @@ public class Chairman extends Admin{
                 newJunior.setCompetitive(isNewMemberCompetitive());
                 newCompetitive(newJunior);
                 System.out.println("\n"+newJunior.getName()+" blev oprettet i systemet, med medlems ID: "+newJunior.getMemberId());
-                FileWriter.write(newJunior);
+                FileWriter.writeNewMember(newJunior);
             }
             case 2 -> {
                 Senior newSenior = new Senior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 newSenior.setCompetitive(isNewMemberCompetitive());
                 newCompetitive(newSenior);
                 System.out.println("\n"+newSenior.getName()+" blev oprettet i systemet, med medlems ID: "+newSenior.getMemberId());
-                FileWriter.write(newSenior);
+                FileWriter.writeNewMember(newSenior);
             }
             case 3 -> {
                 Pensioner newPensioner = new Pensioner(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 System.out.println("\n"+newPensioner.getName()+" blev oprettet i systemet, med medlems ID: "+newPensioner.getMemberId());
-                FileWriter.write(newPensioner);
+                FileWriter.writeNewMember(newPensioner);
             }
             default -> System.out.println("Fejl, prøv igen");
         }
