@@ -1,7 +1,9 @@
 //Jens' kode
 package Users;
 
+import FileReaderWriter.Writer;
 import Members.SwimmingClubMember;
+import Statistics.MemberHandler;
 
 import java.util.ArrayList;
 
@@ -12,12 +14,7 @@ public class Cashier extends Admin{
     }
 
     public void checkArrears(int memberId, ArrayList<SwimmingClubMember> allMembers){
-        SwimmingClubMember memberToCheck = null;
-        for (SwimmingClubMember member:allMembers) {
-            if (member.getMemberId()==memberId){
-                memberToCheck=member;
-            }
-        }
+        SwimmingClubMember memberToCheck = MemberHandler.getMemberFromId(memberId,allMembers);
         System.out.println("\n"+memberToCheck.getName()+" er DKK "+memberToCheck.getArrears()+" i restance.");
     }
 
@@ -30,14 +27,11 @@ public class Cashier extends Admin{
     }
 
     public void registerContingentPayment(int memberId, double amountPayed, ArrayList<SwimmingClubMember> allMembers){
-        SwimmingClubMember memberToCheck = null;
-        for (SwimmingClubMember member:allMembers) {
-            if (member.getMemberId()==memberId){
-                memberToCheck=member;
-            }
-        }
+        SwimmingClubMember memberToCheck = MemberHandler.getMemberFromId(memberId,allMembers);
         memberToCheck.setArrears(memberToCheck.getArrears()-amountPayed);
         System.out.println("Betaling af DKK "+amountPayed+" er registreret for medlemmet, med medlemsID: "+memberId);
         System.out.println("Restbalance er DKK "+memberToCheck.getArrears());
+        Writer.updateMembersList(allMembers);
+
     }
 }

@@ -6,8 +6,6 @@ import FileReaderWriter.GetUserInput;
 import FileReaderWriter.Reader;
 import Members.SwimmingClubMember;
 import Users.*;
-
-import java.io.FileWriter;
 import java.util.ArrayList;
 
 
@@ -18,7 +16,7 @@ public class Main {
                 new Cashier("Jens", "nej", "jens.dk"),
                 new Coach("Mikkel", "dig", "jens.dk")
         };
-        ArrayList<SwimmingClubMember> allMembers = Reader.getExistingMembersArrayList(Reader.getAllMembersToArrayList());
+        ArrayList<SwimmingClubMember> allMembers = Reader.getExistingMembersFromCsvToArrayList(Reader.getAllMembersToArrayList());
 
         int userNumber = logInSequence(users);
 
