@@ -1,43 +1,42 @@
 package Competitive;
 
 import FileReaderWriter.GetUserInput;
+import Users.Chairman;
 
 import java.awt.*;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Competition {
-    private Date timeOfEvent;
+    private String nameOfCompetition;
+    private LocalDate timeOfEvent;
     private Stroke stroke;
     private int distance;
-    private int swimTime;
 
-    public Competition(Stroke stroke, int distance, int time) {
+    public Competition(String nameOfCompetition, LocalDate timeOfEvent, Stroke stroke, int distance) {
+        this.nameOfCompetition = nameOfCompetition;
+        this.timeOfEvent = timeOfEvent;
         this.stroke = stroke;
         this.distance = distance;
-        this.swimTime = time;
     }
-
-    public static void createNewCompetition() {
-        System.out.println("Type in time of event: (hh-mm-dd-MM-yyyy");
+/*
+    public static Competition createNewCompetition() {
+        System.out.println("Type in the name of the competition: ");
+        String nameOfEvent = GetUserInput.string();
+        System.out.println("Type in time of event: (dd-MM-yyyy");
         String timeOfEvent = GetUserInput.string();
         System.out.println("Type in stroke type: ");
         String stroke = GetUserInput.string();
         System.out.println("Type in distance :");
         int distance = GetUserInput.integer();
 
-        //Date date = convertToDate(birthdate);
+        LocalDate dateOfEvent = Chairman.convertToDate(timeOfEvent);
 
-        /* Continue
-        String[] dateOfEventArray = timeOfEvent.split("-");
-        int yearOfEvent = Integer.parseInt(dateOfBirthArray[2]);
-        int monthOfEvent = Integer.parseInt(dateOfBirthArray[1])-1;
-        int dayOfEvent = Integer.parseInt(dateOfBirthArray[0]);
-        int hourOfEvent = Integer.parseInt(hour)
-        Date date = new Date (yearOfBirtDate-1900,monthOfBirthdate,dayOfBirthdate);
-
-         */
+        return new 
 
     }
+
+ */
 
     public Stroke getStroke() {
         return stroke;
@@ -47,7 +46,4 @@ public class Competition {
         return distance;
     }
 
-    public int getTime() {
-        return swimTime;
-    }
 }
