@@ -11,7 +11,7 @@ public class GetUserInput {
     }
 
     public static int integer(){
-        int userInput = 0;
+        int userInput;
         try {
             Scanner scanner = new Scanner(System.in);
             userInput =  Integer.parseInt(scanner.nextLine());
@@ -33,8 +33,15 @@ public class GetUserInput {
     }
 
     public static double doubl(){
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextDouble();
+        double userInput;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            userInput = scanner.nextDouble();
+        } catch (NumberFormatException e) {
+            System.out.println("Ugyldigt input. Indtast venligst et nummer: ");
+            return doubl();
+        }
+        return userInput;
     }
 
 
