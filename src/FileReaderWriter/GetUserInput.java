@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class GetUserInput {
 
-    public static String string(){
+    public static String string(){//Jens
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
-    public static int integer(){
+    public static int integer(){//Jens og Mads
         int userInput;
         try {
             Scanner scanner = new Scanner(System.in);
@@ -22,7 +22,7 @@ public class GetUserInput {
         return userInput;
     }
 
-    public static int menu(int amountOfOptions){
+    public static int menu(int amountOfOptions){// Jens
         Scanner scanner = new Scanner(System.in);
         int optionChoice = Integer.parseInt(scanner.nextLine());
         while (optionChoice>amountOfOptions || optionChoice < 0){
@@ -32,7 +32,7 @@ public class GetUserInput {
         return optionChoice;
     }
 
-    public static double doubl(){
+    public static double doubl(){// Jens, Mads og Mikkel
         double userInput;
         try {
             Scanner scanner = new Scanner(System.in);
