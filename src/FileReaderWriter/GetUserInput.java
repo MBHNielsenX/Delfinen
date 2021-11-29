@@ -1,6 +1,7 @@
 //Jens' kode
 package FileReaderWriter;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GetUserInput {
@@ -11,11 +12,18 @@ public class GetUserInput {
     }
 
     public static int integer(){
-        Scanner scanner = new Scanner(System.in);
-        return Integer.parseInt(scanner.nextLine());
+        int userInput = 0;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            userInput =  Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Ugyldigt input. Indtast venligst et nummer: ");
+            return integer();
+        }
+        return userInput;
     }
 
-    public static int menu(int amountOfOptions){
+    public static int menu(int amountOfOptions){ //Indfør try catch
         Scanner scanner = new Scanner(System.in);
         int optionChoice = Integer.parseInt(scanner.nextLine());
         while (optionChoice>amountOfOptions || optionChoice < 0){
@@ -23,13 +31,12 @@ public class GetUserInput {
             optionChoice = Integer.parseInt(scanner.nextLine());
         }
         return optionChoice;
+
     }
 
     public static double doubl(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextDouble();
     }
-
-
 
 }

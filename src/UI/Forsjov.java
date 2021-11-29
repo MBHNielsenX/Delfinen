@@ -1,5 +1,6 @@
 package UI;
 
+import FileReaderWriter.GetUserInput;
 import FileReaderWriter.Writer;
 import Users.Chairman;
 
@@ -15,5 +16,6 @@ public class Forsjov {
             System.out.println(string);
 
         }
+        System.out.println(GetUserInput.integer());
     }
 }
