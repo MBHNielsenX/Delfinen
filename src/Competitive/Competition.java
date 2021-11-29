@@ -1,13 +1,10 @@
 package Competitive;
 
-import FileReaderWriter.GetUserInput;
-import Members.CompetitiveSwimmer;
+import IO.GetUserInput;
 import Members.SwimmingClubMember;
 import Statistics.MemberHandler;
 import Users.Chairman;
-import Users.Coach;
 
-import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -77,8 +74,6 @@ public class Competition {
         }
         return null;
     }
-
-
 
     public static Competition createNewCompetition() {
         System.out.println("Indtast navnet for det svømmestævne du har været til: ");
