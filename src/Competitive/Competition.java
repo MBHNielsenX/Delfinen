@@ -1,6 +1,7 @@
 package Competitive;
 
 import FileReaderWriter.GetUserInput;
+import Members.CompetitiveSwimmer;
 import Members.SwimmingClubMember;
 import Statistics.MemberHandler;
 import Users.Chairman;
@@ -44,6 +45,8 @@ public class Competition {
             System.out.println(stroke);
             System.out.println(swimTime);
             System.out.println(placering);
+
+
 
             registerMore = registerMoreTimes();
         }
