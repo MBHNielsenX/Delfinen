@@ -1,7 +1,7 @@
 //Jens' kode
 package Users;
 
-import FileReaderWriter.Writer;
+import IO.FileWriter;
 import Members.SwimmingClubMember;
 import Statistics.MemberHandler;
 
@@ -31,7 +31,7 @@ public class Cashier extends Admin{
         memberToCheck.setArrears(memberToCheck.getArrears()-amountPayed);
         System.out.println("Betaling af DKK "+amountPayed+" er registreret for medlemmet, med medlemsID: "+memberId);
         System.out.println("Restbalance er DKK "+memberToCheck.getArrears());
-        Writer.updateMembersList(allMembers);
+        FileWriter.updateMembersList(allMembers);
 
     }
 }

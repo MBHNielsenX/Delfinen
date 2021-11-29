@@ -1,5 +1,5 @@
 //Jens' kode
-package FileReaderWriter;
+package IO;
 
 import java.util.Scanner;
 

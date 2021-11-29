@@ -1,8 +1,8 @@
 //Mikkels kode
 package Users;
 
-import FileReaderWriter.GetUserInput;
-import FileReaderWriter.Writer;
+import IO.GetUserInput;
+import IO.FileWriter;
 import Members.*;
 
 import java.time.LocalDate;
@@ -26,18 +26,18 @@ public class Chairman extends Admin{
                 Junior newJunior = new Junior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date,true);
                 newJunior.setCompetitive(isNewMemberCompetitive());
                 System.out.println("\n"+newJunior.getName()+" blev oprettet i systemet, med medlems ID: "+newJunior.getMemberId());
-                Writer.write(newJunior);
+                FileWriter.write(newJunior);
             }
             case 2 -> {
                 Senior newSenior = new Senior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 newSenior.setCompetitive(isNewMemberCompetitive());
                 System.out.println("\n"+newSenior.getName()+" blev oprettet i systemet, med medlems ID: "+newSenior.getMemberId());
-                Writer.write(newSenior);
+                FileWriter.write(newSenior);
             }
             case 3 -> {
                 Pensioner newPensioner = new Pensioner(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 System.out.println("\n"+newPensioner.getName()+" blev oprettet i systemet, med medlems ID: "+newPensioner.getMemberId());
-                Writer.write(newPensioner);
+                FileWriter.write(newPensioner);
             }
             default -> System.out.println("Fejl, prøv igen");
         }
@@ -75,7 +75,7 @@ public class Chairman extends Admin{
         int userInput = GetUserInput.integer();
         return userInput == 1;
     }
-    
+
     public static int whichMembership(int age){
         if (age > 65){
             return 3;

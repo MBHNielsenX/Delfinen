@@ -1,7 +1,7 @@
 //Primært Jens' kode
 package Members;
 
-import FileReaderWriter.Reader;
+import IO.FileReader;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -126,10 +126,10 @@ public abstract class SwimmingClubMember {
         return existingMemberIds;
     }
 
-    public static void setExistingMemberIds() {
-        ArrayList<String> grabbedMemberIds = Reader.getMemberIdsFromFile();
+    public static void addExistingMemberIdsToStaticArraylist() {
+        ArrayList<String> grabbedMemberIds = FileReader.getMemberIdsFromFile();
         for (String currentId:grabbedMemberIds) {
-            String[] currentIdArray = currentId.split(":");
+            String[] currentIdArray = currentId.split(": ");
             int idInt = Integer.parseInt(currentIdArray[1]);
             existingMemberIds.add(idInt);
         }

@@ -1,4 +1,4 @@
-package FileReaderWriter;
+package IO;
 
 import Members.*;
 import Users.Chairman;
@@ -7,12 +7,12 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Reader {
+public class FileReader {
     //Jens og Mikkels kode
     public static ArrayList<String> getAllMembersToArrayList(){
         ArrayList<String> memberData = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/Statistics/MemberList/Members.csv"));
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.csv"));
             String currentLine;
             while((currentLine = reader.readLine()) !=null)
                 if (currentLine.contains("ID:")) {
@@ -29,7 +29,6 @@ public class Reader {
             e.printStackTrace();
         } return memberData;
     }
-
     public static ArrayList<SwimmingClubMember> getExistingMembersFromCsvToArrayList(ArrayList<String> memberData) {
         ArrayList<SwimmingClubMember> existingMembers = new ArrayList<>();
 
@@ -56,17 +55,11 @@ public class Reader {
     }
 
     //Mads' code
-    public static void showListOfMemberID() {
-        ArrayList<Integer> allMemberID = new ArrayList<Integer>(SwimmingClubMember.getExistingMemberIds());
-        for (int i = 0; i < allMemberID.size(); i++) {
-            System.out.println("\n" + allMemberID.get(i) + "\n");
-        }
-    }
-    public static ArrayList<String> getMemberIdsFromFile() { //Mads' code
+    public static ArrayList<String> getMemberIdsFromFile() {
         //Method that grabs the IDs form the .csv file and is used for the existingMemberIDs variable in SwimmingClubMember.java
         ArrayList<String> grabbedIDFromFile = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/Statistics/MemberList/Members.csv"));
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.csv"));
             String currentLine;
             while((currentLine = reader.readLine()) !=null)
                 if (currentLine.contains("ID")) {
@@ -82,7 +75,7 @@ public class Reader {
     }
     public static void printMembersList() {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/Statistics/MemberList/Members.csv"));
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.csv"));
             String line;
             System.out.println();
             while((line = reader.readLine()) !=null)

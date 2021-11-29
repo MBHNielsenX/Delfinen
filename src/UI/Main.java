@@ -2,9 +2,10 @@
 
 package UI;
 
-import FileReaderWriter.GetUserInput;
-import FileReaderWriter.Reader;
+import IO.GetUserInput;
+import IO.FileReader;
 import Members.SwimmingClubMember;
+import Statistics.MemberHandler;
 import Users.*;
 import java.util.ArrayList;
 
@@ -14,22 +15,14 @@ public class Main {
         Admin[] users = {
                 new Chairman("Mads", "hej", "jens.dk"),
                 new Cashier("Jens", "nej", "jens.dk"),
-                new Coach("Mikkel", "dig", "jens.dk")
-        };
-        ArrayList<SwimmingClubMember> allMembers = Reader.getExistingMembersFromCsvToArrayList(Reader.getAllMembersToArrayList());
+                new Coach("Mikkel", "dig", "jens.dk")};
+
+        SwimmingClubMember.addExistingMemberIdsToStaticArraylist();
+        ArrayList<SwimmingClubMember> allMembers = FileReader.getExistingMembersFromCsvToArrayList(FileReader.getAllMembersToArrayList());
 
         int userNumber = logInSequence(users);
-
         giveRespectiveMenuOptions(userNumber,users,allMembers);
     }
-
-    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers){
-        switch(userNumber){
-            case 0 -> getChairmanMenu(users,allMembers);
-            case 1 -> getCashierMenu(users,allMembers);
-            case 2 -> getCoachMenu(users,allMembers);
-            }
-        }
 
     public static int logInSequence(Admin[] users) {
         int userNumber = 4;
@@ -55,18 +48,26 @@ public class Main {
         return userNumber;
     }
 
-    public static void getChairmanMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
-        Chairman cn = (Chairman) users[0];
-        int userChoice = 0;
-        while (userChoice!=2){
-            System.out.println("\nRegistrer nyt medlem i Svømmeklubben Delfinen - Tast 1\nForlad menu - Tast 2");
-            userChoice = GetUserInput.menu(2);
-            switch (userChoice){
-                case 1 -> cn.createNewMember();
-            }
+    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers){
+        switch(userNumber){
+            case 0 -> getChairmanMenu(users,allMembers);
+            case 1 -> getCashierMenu(users,allMembers);
+            case 2 -> getCoachMenu(users,allMembers);
         }
     }
 
+    public static void getChairmanMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
+        Chairman cn = (Chairman) users[0];
+        int userChoice = 0;
+        while (userChoice!=3){
+            System.out.println("\nRegistrer nyt medlem i Svømmeklubben Delfinen - Tast 1\tVis alle medlemmer - Tast 2\nForlad menu - Tast 3");
+            userChoice = GetUserInput.menu(3);
+            switch (userChoice){
+                case 1 -> cn.createNewMember();
+                case 2 -> MemberHandler.printAllMembersNamesAndIds(allMembers);
+            }
+        }
+    }
     public static void getCashierMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
         Cashier cr = (Cashier) users[1];
         int userChoice = 0;

@@ -1,8 +1,5 @@
 package Competitive;
 
-import FileReaderWriter.GetUserInput;
-import Users.Chairman;
-
 import java.awt.*;
 import java.time.LocalDate;
 

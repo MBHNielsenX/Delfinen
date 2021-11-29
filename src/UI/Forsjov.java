@@ -1,12 +1,8 @@
 package UI;
 
-import FileReaderWriter.Writer;
-import Users.Chairman;
-
 import java.util.ArrayList;
 
-import static FileReaderWriter.Reader.getMemberIdsFromFile;
-import static FileReaderWriter.Reader.printMembersList;
+import static IO.FileReader.getMemberIdsFromFile;
 
 public class Forsjov {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
 //Mads' kode
-package FileReaderWriter;
+package IO;
 
 import Members.SwimmingClubMember;
 import java.io.*;
@@ -7,10 +7,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
-public class Writer {
+public class FileWriter {
     public static void write(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics/MemberList/Members.csv",true));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.csv",true));
             writer.write(getMemberInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
@@ -37,7 +37,7 @@ public class Writer {
     public static void updateMembersList(ArrayList<SwimmingClubMember> allMembers){
         //Append set to false -> write nothing = wipe file
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics/MemberList/Members.csv"));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.csv"));
             writer.write("");
             writer.close();
         } catch (IOException e) {
@@ -47,7 +47,7 @@ public class Writer {
         //Write new members to file
         for (SwimmingClubMember member:allMembers) {
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("src/Statistics/MemberList/Members.csv",true));
+                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.csv",true));
                 writer.write(getMemberInfo(member) + "\n");
                 writer.close();
             } catch (IOException e) {
