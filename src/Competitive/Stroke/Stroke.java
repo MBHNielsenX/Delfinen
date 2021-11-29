@@ -1,5 +1,6 @@
 package Competitive.Stroke;
 
-abstract class Stroke {
-    String type;
+public class Stroke {
+
 }
+

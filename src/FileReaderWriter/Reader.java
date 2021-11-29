@@ -55,14 +55,14 @@ public class Reader {
         return existingMembers;
     }
 
-    //Mads' kode
+    //Mads' code
     public static void showListOfMemberID() {
         ArrayList<Integer> allMemberID = new ArrayList<Integer>(SwimmingClubMember.getExistingMemberIds());
         for (int i = 0; i < allMemberID.size(); i++) {
             System.out.println("\n" + allMemberID.get(i) + "\n");
         }
     }
-    public static ArrayList<String> getMemberIdsFromFile() {
+    public static ArrayList<String> getMemberIdsFromFile() { //Mads' code
         //Method that grabs the IDs form the .csv file and is used for the existingMemberIDs variable in SwimmingClubMember.java
         ArrayList<String> grabbedIDFromFile = new ArrayList<>();
         try {
