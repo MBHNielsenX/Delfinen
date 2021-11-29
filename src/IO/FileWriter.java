@@ -35,14 +35,6 @@ public class FileWriter {
             e.printStackTrace();
         }
     }
-    public static String getCompetitiveInfo(SwimmingClubMember member) {
-        return "ID : " + member.getMemberId() + "\n" +
-                "Name: " + member.getName() + "\n" +
-                "Butterfly: " + member.getButterflyTime() + "\n" +
-                "Rygsvømmning: " + member.getBackstrokeTime() + "\n" +
-                "Brystsvømmning: " + member.getBreaststrokeTime() + "\n" +
-                "Crawl: " + member.getFreestyleTime() + "\n";
-    }
 
     public static String getMemberInfo(SwimmingClubMember member) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -58,6 +50,14 @@ public class FileWriter {
                 "Arrears: " + member.getArrears() + "\n" +
                 "Is member active: " + member.isActive() + "\n" +
                 "Is member competitive: " + member.isCompetitive() + "\n";
+    }
+    public static String getCompetitiveInfo(SwimmingClubMember member) {
+        return "ID : " + member.getMemberId() + "\n" +
+                "Name: " + member.getName() + "\n" +
+                "Butterfly: " + member.getButterflyTime() + "\n" +
+                "Rygsvømmning: " + member.getBackstrokeTime() + "\n" +
+                "Brystsvømmning: " + member.getBreaststrokeTime() + "\n" +
+                "Crawl: " + member.getFreestyleTime() + "\n";
     }
 
     //Jens
@@ -80,6 +80,24 @@ public class FileWriter {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+    public static void updateSeniorsList(SwimmingClubMember member) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
+            writer.write(getCompetitiveInfo(member) + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void updateJuniorsList(SwimmingClubMember member) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
+            writer.write(getCompetitiveInfo(member) + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
