@@ -172,5 +172,28 @@ public class FileReader {
             e.printStackTrace();
         }
     }
-
+    public static void printJuniorCompetitiveList() {
+        try {
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/JuniorCompetitive.csv"));
+            String line;
+            System.out.println();
+            while((line = reader.readLine()) !=null)
+                System.out.println(line);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void printSeniorCompetitiveList() {
+        try {
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/SeniorCompetitive.csv"));
+            String line;
+            System.out.println();
+            while((line = reader.readLine()) !=null)
+                System.out.println(line);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
