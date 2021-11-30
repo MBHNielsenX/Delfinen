@@ -68,6 +68,7 @@ public class Main {
             }
         }
     }
+
     public static void getCashierMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
         Cashier cr = (Cashier) users[1];
         int userChoice = 0;
@@ -91,6 +92,7 @@ public class Main {
             }
         }
     }
+
     public static void getCoachMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //the two last arguments are tests
         Coach ch = (Coach) users[2];
         int userChoice = 0;
