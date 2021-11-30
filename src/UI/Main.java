@@ -18,9 +18,10 @@ public class Main {
 
         SwimmingClubMember.addExistingMemberIdsToStaticArraylist();
         ArrayList<SwimmingClubMember> allMembers = FileReader.getExistingMembersFromCsvToArrayList(FileReader.getAllMembersToArrayList());
-
+        ArrayList<SwimmingClubMember> juniorCompetitiveMembers = FileReader.getExistingCompetitiveJuniorsFromCsvToArrayList(FileReader.getAllCompetitiveJuniorsToArrayList());//test
+        ArrayList<SwimmingClubMember> seniorCompetitiveMembers = FileReader.getExistingCompetitiveSeniorsFromCsvToArrayList(FileReader.getAllCompetitiveSeniorsToArrayList());//test
         int userNumber = logInSequence(users);
-        giveRespectiveMenuOptions(userNumber,users,allMembers);
+        giveRespectiveMenuOptions(userNumber,users,allMembers, juniorCompetitiveMembers, seniorCompetitiveMembers); //The 2 last arguments are test
     }
 
     public static int logInSequence(Admin[] users) {
@@ -47,11 +48,11 @@ public class Main {
         return userNumber;
     }
 
-    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers){
+    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers, ArrayList<SwimmingClubMember>competitiveJuniors, ArrayList<SwimmingClubMember>competitiveSeniors){ // the two last arguments are tests
         switch(userNumber){
             case 0 -> getChairmanMenu(users,allMembers);
             case 1 -> getCashierMenu(users,allMembers);
-            case 2 -> getCoachMenu(users,allMembers);
+            case 2 -> getCoachMenu(users,allMembers, competitiveJuniors, competitiveSeniors);
         }
     }
 
@@ -90,7 +91,7 @@ public class Main {
             }
         }
     }
-    public static void getCoachMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
+    public static void getCoachMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //the two last arguments are tests
         Coach ch = (Coach) users[2];
         int userChoice = 0;
         while (userChoice!=3){
