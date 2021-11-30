@@ -82,6 +82,7 @@ public class FileWriter {
             }
         }
     }
+
     public static void updateSeniorsList(ArrayList<SwimmingClubMember> competitiveSeniors) {
         try {
             BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
@@ -100,6 +101,7 @@ public class FileWriter {
             }
         }
     }
+
     public static void updateJuniorsList(ArrayList<SwimmingClubMember> competitiveJuniors) {
         try {
             BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv",true));
