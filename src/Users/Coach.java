@@ -6,6 +6,9 @@ import Members.*;
 import Members.Base.SwimmingClubMember;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class Coach extends Admin{
@@ -25,29 +28,16 @@ public class Coach extends Admin{
             System.out.println("Hvilken svømmer vil du register en tid til?");
             int swimmerID = GetUserInput.integer();
             SwimmingClubMember currentMember = MemberHandler.getMemberFromId(swimmerID, allMembers);
-            SwimmingClubMember currentSenior = MemberHandler.getCompetitiveSeniorFromId(swimmerID, competitiveSeniors);
             String memberName = currentMember.getName();
             System.out.println("Hvilken disciplin svømmede svømmeren?");
             String stroke = whichStroke(currentMember);
-            /*
-            System.out.println("Hvilken tid svømmede svømmeren i?");
-            double swimTime = GetUserInput.doubl();
-             */
             System.out.println("Hvilken placering fik svømmeren?");
             int placering = GetUserInput.integer();
-
-            /*
-            System.out.println(currentEvent.getNameOfCompetition());
-            System.out.println(memberName);
-            System.out.println(stroke);
-            System.out.println(placering);
-             */
 
             switch (juniorOrSenior){
                 case 1 -> {FileWriter.writeJuniorComp(currentMember);}
                 case 2 -> {FileWriter.writeSeniorComp(currentMember);}
             }
-
 
             registerMore = registerMoreTimes();
         }
@@ -87,13 +77,25 @@ public class Coach extends Admin{
     }
 
 
+
     public void displayAllCompetitiveSwimmers(){ // Viser navne og ID på alle konkurrencesvømmere
 
     }
 
-    public void topFiveResults(){
 
-    }
+
+
+    public void topFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+        System.out.println("Indtast 1 for at se Juniorsvømmere eller 2 for Seniorsvømmere.");
+        int juniorOrSenior = GetUserInput.integer();
+        System.out.println("Tast 1 for butterfly, 2 for rygsvømning, 3 for brystsvømning eller 4 for crawl.");
+        int strokeChoice = GetUserInput.integer();
+
+        competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
+        competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
+
+        }
+
 
     public void isTopFive(){
 

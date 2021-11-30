@@ -101,7 +101,7 @@ public class Main {
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
                 case 1 -> ch.registerNewTime(allMembers,competitiveJuniors,competitiveSeniors); //ch.registerSwimTime();
-                case 2 -> ch.topFiveResults();
+                case 2 -> ch.topFiveResults(competitiveJuniors, competitiveSeniors);
             }
         }
     }
