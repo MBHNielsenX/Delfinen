@@ -13,16 +13,19 @@ public class Coach extends Admin{
         super(userName, password, email);
     }
 
-    public void registerNewTime(ArrayList<SwimmingClubMember> allMembers){
-        System.out.println("Hej! Hvilket stævne har du været til?");
+    public void registerNewTime(ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+        System.out.println("Goddag!");
         Competition currentEvent = Competition.createNewCompetition();
 
         boolean registerMore = true;
 
         while (registerMore) {
+            System.out.println("Tast 1 for juniorsvømmere eller 2 for seniorsvømmere!");
+            int juniorOrSenior = GetUserInput.integer();
             System.out.println("Hvilken svømmer vil du register en tid til?");
             int swimmerID = GetUserInput.integer();
             SwimmingClubMember currentMember = MemberHandler.getMemberFromId(swimmerID, allMembers);
+            SwimmingClubMember currentSenior = MemberHandler.getCompetitiveSeniorFromId(swimmerID, competitiveSeniors);
             String memberName = currentMember.getName();
             System.out.println("Hvilken disciplin svømmede svømmeren?");
             String stroke = whichStroke(currentMember);
@@ -40,7 +43,11 @@ public class Coach extends Admin{
             System.out.println(placering);
              */
 
-            FileWriter.writeSeniorComp(currentMember);
+            switch (juniorOrSenior){
+                case 1 -> {FileWriter.writeJuniorComp(currentMember);}
+                case 2 -> {FileWriter.writeSeniorComp(currentMember);}
+            }
+
 
             registerMore = registerMoreTimes();
         }

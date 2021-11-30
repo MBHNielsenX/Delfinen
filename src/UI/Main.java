@@ -100,7 +100,7 @@ public class Main {
             System.out.println("\nRegistrer konkurrenceresultat for medlem - Tast 1\t\tTjek Delfinens Top 5-resultater - Tast 2\nForlad menu - Tast 3");
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
-                case 1 -> ch.registerNewTime(allMembers); //ch.registerSwimTime();
+                case 1 -> ch.registerNewTime(allMembers,competitiveJuniors,competitiveSeniors); //ch.registerSwimTime();
                 case 2 -> ch.topFiveResults();
             }
         }
