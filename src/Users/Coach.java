@@ -5,9 +5,8 @@ import IO.*;
 import Members.*;
 import Members.Base.SwimmingClubMember;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 
 
@@ -16,7 +15,30 @@ public class Coach extends Admin{
         super(userName, password, email);
     }
 
-    public void registerNewTime(ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+
+    public void registerNewTrainingTime(ArrayList<String> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+        System.out.println("Goddag!");
+        System.out.println("Tast 1 for juniorsvømmer eller 2 for seniorsvømmer.");
+        int userInput = GetUserInput.menu(2);
+        System.out.println("Tast 1 for at vælge butterfly, 2 for rygsvømning, 3 for brystsvømning eller 4 for crawl.");
+        int strokeChoice = GetUserInput.menu(4);
+        LocalDate currentDate = LocalDate.now();
+
+        // Skal vi oprette klasser til at gemme vores resultater? Evt under competitive? TrainingResult og CompetitionResult evt? Construktor? Er det nemmere?
+
+        switch (userInput){
+            case 1 -> {
+
+            }
+            case 2 -> {
+
+            }
+        }
+
+
+    }
+
+    public void registerNewTime(ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time
         System.out.println("Goddag!");
         Competition currentEvent = Competition.createNewCompetition();
 
@@ -36,7 +58,7 @@ public class Coach extends Admin{
 
             switch (juniorOrSenior){
                 case 1 -> {FileWriter.writeJuniorComp(currentMember);}
-                case 2 -> {FileWriter.writeSeniorComp(currentMember);}
+                case 2 -> {FileWriter.updateSeniorsList(competitiveSeniors);}
             }
 
             registerMore = registerMoreTimes();

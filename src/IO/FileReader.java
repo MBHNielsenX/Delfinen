@@ -107,7 +107,7 @@ public class FileReader {
                 if (currentLine.contains("ID:")) {
                     String[] currentLineArray = currentLine.split(": ");
                     seniorsCompetitiveData.add(currentLineArray[1]);
-                    for (int i = 0; i < 9; i++) {
+                    for (int i = 0; i < 6; i++) {
                         currentLine = reader.readLine();
                         String[] currentLineArrayTwo = currentLine.split(": ");
                         seniorsCompetitiveData.add(currentLineArrayTwo[1]);
@@ -131,7 +131,7 @@ public class FileReader {
             double breaststrokeTime = Double.parseDouble(memberCompetitiveData.get(4+i));
             double freestyleTime = Double.parseDouble(memberCompetitiveData.get(5+i));
 
-            existingCompetitiveSeniors.add(new Junior(currentId,currentName,butterflyTime,backstrokeTime,breaststrokeTime,freestyleTime));
+            existingCompetitiveSeniors.add(new Senior(currentId,currentName,butterflyTime,backstrokeTime,breaststrokeTime,freestyleTime));
 
         }
         return existingCompetitiveSeniors;
