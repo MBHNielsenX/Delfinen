@@ -49,6 +49,13 @@ public class Coach extends Admin{
             int juniorOrSenior = GetUserInput.integer();
             System.out.println("Hvilken svømmer vil du register en tid til?");
             int swimmerID = GetUserInput.integer();
+
+            /*
+            switch (juniorOrSenior){
+                case 1 -> {SwimmingClubMember currentJuniorMember = MemberHandler.getMemberFromId(swimmerID,competitiveJuniors);}
+                case 2 -> {SwimmingClubMember currentSeniorMember = MemberHandler.getMemberFromId(swimmerID,competitiveSeniors);}
+             */
+
             SwimmingClubMember currentMember = MemberHandler.getMemberFromId(swimmerID, allMembers);
             String memberName = currentMember.getName();
             System.out.println("Hvilken disciplin svømmede svømmeren?");
@@ -58,7 +65,10 @@ public class Coach extends Admin{
 
             switch (juniorOrSenior){
                 case 1 -> {FileWriter.writeJuniorComp(currentMember);}
-                case 2 -> {FileWriter.writeSeniorComp(currentMember);}
+                case 2 -> {
+                    FileWriter.writeSeniorComp(currentMember);
+                    FileWriter.updateSeniorsList(competitiveSeniors);
+                }
             }
 
             registerMore = registerMoreTimes();
@@ -115,9 +125,17 @@ public class Coach extends Admin{
         int strokeChoice = GetUserInput.integer();
          */
         //competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
-        System.out.println(competitiveSeniors);
+        //System.out.println(competitiveSeniors);
+        for (int i = 0; i < competitiveSeniors.size(); i++) {
+            System.out.println(competitiveSeniors.get(i).getName());
+            System.out.println(competitiveSeniors.get(i).getButterflyTime());
+        }
         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
-        System.out.println(competitiveSeniors);
+        for (int i = 0; i < competitiveSeniors.size(); i++) {
+            System.out.println(competitiveSeniors.get(i).getName());
+            System.out.println(competitiveSeniors.get(i).getButterflyTime());
+        }
+        //System.out.println(competitiveSeniors);
         }
 
 
