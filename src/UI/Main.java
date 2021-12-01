@@ -21,7 +21,7 @@ public class Main {
         ArrayList<SwimmingClubMember> juniorCompetitiveMembers = FileReader.getExistingCompetitiveJuniorsFromCsvToArrayList(FileReader.getAllCompetitiveJuniorsToArrayList());//test
         ArrayList<SwimmingClubMember> seniorCompetitiveMembers = FileReader.getExistingCompetitiveSeniorsFromCsvToArrayList(FileReader.getAllCompetitiveSeniorsToArrayList());//test
         int userNumber = logInSequence(users);
-        giveRespectiveMenuOptions(userNumber,users,allMembers, juniorCompetitiveMembers, seniorCompetitiveMembers); //The 2 last arguments are test
+        giveRespectiveMenuOptions(userNumber,users,allMembers, juniorCompetitiveMembers, seniorCompetitiveMembers);
     }
 
     public static int logInSequence(Admin[] users) {
@@ -48,7 +48,7 @@ public class Main {
         return userNumber;
     }
 
-    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers, ArrayList<SwimmingClubMember>competitiveJuniors, ArrayList<SwimmingClubMember>competitiveSeniors){ // the two last arguments are tests
+    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers, ArrayList<SwimmingClubMember>competitiveJuniors, ArrayList<SwimmingClubMember>competitiveSeniors){
         switch(userNumber){
             case 0 -> getChairmanMenu(users,allMembers);
             case 1 -> getCashierMenu(users,allMembers);
@@ -93,7 +93,7 @@ public class Main {
         }
     }
 
-    public static void getCoachMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //the two last arguments are tests
+    public static void getCoachMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         Coach ch = (Coach) users[2];
         int userChoice = 0;
         while (userChoice!=3){

@@ -135,9 +135,7 @@ public class Coach extends Admin{
 
 
 
-    public void displayAllCompetitiveSwimmers(){ // Viser navne og ID på alle konkurrencesvømmere
 
-    }
 
 
 
