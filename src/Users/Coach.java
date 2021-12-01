@@ -22,7 +22,7 @@ public class Coach extends Admin{
         int userInput = GetUserInput.menu(2);
         System.out.println("Tast 1 for at vælge butterfly, 2 for rygsvømning, 3 for brystsvømning eller 4 for crawl.");
         int strokeChoice = GetUserInput.menu(4);
-        LocalDate currentDate = LocalDate.now();
+        LocalDate currentDate = LocalDate.now(); //remove later
 
         // Skal vi oprette klasser til at gemme vores resultater? Evt under competitive? TrainingResult og CompetitionResult evt? Construktor? Er det nemmere?
 
@@ -40,7 +40,7 @@ public class Coach extends Admin{
 
     public void registerNewTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time
         System.out.println("Goddag!");
-        Competition currentEvent = Competition.createNewCompetition();
+        Competition currentEvent = Competition.createNewCompetition(); //remove later
 
         boolean registerMore = true;
 
@@ -65,15 +65,15 @@ public class Coach extends Admin{
 
     public void executeMember(SwimmingClubMember competitiveMember, int juniorOrSenior, int swimmerID, ArrayList<SwimmingClubMember> competitiveMembers) {
         SwimmingClubMember currentMember = MemberHandler.getMemberFromId(swimmerID,competitiveMembers);
-        String memberName = currentMember.getName();
+        String memberName = currentMember.getName(); //remove later
         System.out.println("Hvilken disciplin svømmede svømmeren?");
         whichStroke(currentMember);
         System.out.println("Hvilken placering fik svømmeren?");
-        int placering = GetUserInput.integer();
+        int placering = GetUserInput.integer(); //remove later
 
         switch (juniorOrSenior){
-            case 1 -> {FileWriter.updateJuniorsList(competitiveMembers);}
-            case 2 -> {FileWriter.updateSeniorsList(competitiveMembers);}
+            case 1 -> FileWriter.updateJuniorsList(competitiveMembers);
+            case 2 -> FileWriter.updateSeniorsList(competitiveMembers);
         }
     }
 
@@ -89,10 +89,10 @@ public class Coach extends Admin{
         System.out.println("Hvilken tid svømmede svømmeren på?");
         double swimTime = GetUserInput.doubl();
         switch (userInput){
-            case 1 -> {currentMember.setButterflyTime(swimTime);}
-            case 2 -> {currentMember.setBackstrokeTime(swimTime);}
-            case 3 -> {currentMember.setBreaststrokeTime(swimTime);}
-            case 4 -> {currentMember.setFreestyleTime(swimTime);}
+            case 1 -> currentMember.setButterflyTime(swimTime);
+            case 2 -> currentMember.setBackstrokeTime(swimTime);
+            case 3 -> currentMember.setBreaststrokeTime(swimTime);
+            case 4 -> currentMember.setFreestyleTime(swimTime);
         }
     }
 
@@ -109,7 +109,7 @@ public class Coach extends Admin{
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
                         for (SwimmingClubMember m: competitiveJuniors) {
                             if (m.getButterflyTime() == 0.0) {
-                                System.out.printf("");}
+                                System.out.print("");}
                             else {
                                 System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime() + ".");}
                         }
@@ -118,7 +118,7 @@ public class Coach extends Admin{
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBackstrokeTime));
                         for (SwimmingClubMember m:competitiveJuniors) {
                             if (m.getBackstrokeTime() == 0.0) {
-                                System.out.printf("");
+                                System.out.print("");
                             } else {
                                 System.out.println("Svømmer: " + m.getName() + "'s bedste tid i rygsvømning er: " + m.getBackstrokeTime() + ".");
                             }
@@ -128,7 +128,7 @@ public class Coach extends Admin{
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBreaststrokeTime));
                         for (SwimmingClubMember m:competitiveJuniors) {
                             if (m.getBreaststrokeTime() == 0.0) {
-                                System.out.printf("");
+                                System.out.print("");
                             } else {
                                 System.out.println("Svømmer: +" + m.getName() + "'s bedste tid i brystsvømning er: " + m.getBreaststrokeTime());
                             }
@@ -138,7 +138,7 @@ public class Coach extends Admin{
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getFreestyleTime));
                         for (SwimmingClubMember m:competitiveJuniors) {
                             if (m.getFreestyleTime() == 0.0) {
-                                System.out.printf("");
+                                System.out.print("");
                             } else {
                                 System.out.println("Svømmer: " + m.getName() + "'s bedste tid i crawl er: " + m.getFreestyleTime());
                             }
@@ -152,7 +152,7 @@ public class Coach extends Admin{
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
                             if (m.getButterflyTime() == 0.0) {
-                                System.out.printf("");
+                                System.out.print("");
                             } else {
                                 System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime());}
                         }
@@ -161,7 +161,7 @@ public class Coach extends Admin{
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBackstrokeTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
                             if (m.getBackstrokeTime() == 0.0) {
-                                System.out.printf("");
+                                System.out.print("");
                             } else {
                                 System.out.println("Svømmer: "+m.getName()+"'s bedste tid i rygsvømning er: "+m.getBackstrokeTime());
                             }
@@ -171,7 +171,7 @@ public class Coach extends Admin{
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBreaststrokeTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
                             if (m.getBreaststrokeTime() == 0.0) {
-                                System.out.printf("");
+                                System.out.print("");
                             } else {
                                 System.out.println("Svømmer: " + m.getName() + "'s bedste tid i brystsvømning er: " + m.getBreaststrokeTime());
                             }
@@ -181,7 +181,7 @@ public class Coach extends Admin{
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getFreestyleTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
                             if (m.getFreestyleTime() == 0.0) {
-                                System.out.printf("");
+                                System.out.print("");
                             } else {
                                 System.out.println("Svømmer: " + m.getName() + "'s bedste tid i crawl er: " + m.getFreestyleTime());
                             }
@@ -191,7 +191,6 @@ public class Coach extends Admin{
             }
         }
     }
-
 
     public void isTopFive(){
 
