@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class FileReader {
     //Jens og Mikkels kode
-    public static ArrayList<String> getAllMembersToArrayList(){
+    public static ArrayList<String> getExistingMemberDataToArrayList(){
         ArrayList<String> memberData = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.csv"));
@@ -29,8 +29,7 @@ public class FileReader {
             e.printStackTrace();
         } return memberData;
     }
-
-    public static ArrayList<SwimmingClubMember> getExistingMembersFromCsvToArrayList(ArrayList<String> memberData) {
+    public static ArrayList<SwimmingClubMember> getAllExistingMembersFromCsvToArrayList(ArrayList<String> memberData) {
         ArrayList<SwimmingClubMember> existingMembers = new ArrayList<>();
 
         for (int i = 0; i < memberData.size(); i+=10) {
@@ -58,7 +57,6 @@ public class FileReader {
         return existingMembers;
     }
 
-
     public static ArrayList<String> getAllCompetitiveJuniorsToArrayList() {//test
         ArrayList<String> juniorCompetitiveData = new ArrayList<>();
         try {
@@ -68,7 +66,7 @@ public class FileReader {
                 if (currentLine.contains("ID:")) {
                     String[] currentLineArray = currentLine.split(": ");
                     juniorCompetitiveData.add(currentLineArray[1]);
-                    for (int i = 0; i < 9; i++) {
+                    for (int i = 0; i < 5; i++) {
                         currentLine = reader.readLine();
                         String[] currentLineArrayTwo = currentLine.split(": ");
                         juniorCompetitiveData.add(currentLineArrayTwo[1]);
@@ -80,7 +78,6 @@ public class FileReader {
         }
         return juniorCompetitiveData;
     }
-
     public static ArrayList<SwimmingClubMember> getExistingCompetitiveJuniorsFromCsvToArrayList(ArrayList<String> memberCompetitiveData) { //Test
         ArrayList<SwimmingClubMember> existingCompetitiveJuniors = new ArrayList<>();
 
@@ -107,7 +104,7 @@ public class FileReader {
                 if (currentLine.contains("ID:")) {
                     String[] currentLineArray = currentLine.split(": ");
                     seniorsCompetitiveData.add(currentLineArray[1]);
-                    for (int i = 0; i < 6; i++) {
+                    for (int i = 0; i < 5; i++) {
                         currentLine = reader.readLine();
                         String[] currentLineArrayTwo = currentLine.split(": ");
                         seniorsCompetitiveData.add(currentLineArrayTwo[1]);
@@ -119,7 +116,6 @@ public class FileReader {
         }
         return seniorsCompetitiveData;
     }
-
     public static ArrayList<SwimmingClubMember> getExistingCompetitiveSeniorsFromCsvToArrayList(ArrayList<String> memberCompetitiveData) { // test
         ArrayList<SwimmingClubMember> existingCompetitiveSeniors = new ArrayList<>();
 
@@ -136,9 +132,6 @@ public class FileReader {
         }
         return existingCompetitiveSeniors;
     }
-
-
-
 
 
     //Mads' code

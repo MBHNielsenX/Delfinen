@@ -183,4 +183,23 @@ public abstract class SwimmingClubMember {
             existingMemberIds.add(idInt);
         }
     }
+
+    public String bumass() {
+        return "SwimmingClubMember{" +
+                "memberId=" + memberId +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", dateOfBirth=" + dateOfBirth +
+                ", contingent=" + contingent +
+                ", arrears=" + arrears +
+                ", isActive=" + isActive +
+                ", isCompetitive=" + isCompetitive +
+                ", butterflyTime=" + butterflyTime +
+                ", backstrokeTime=" + backstrokeTime +
+                ", breaststrokeTime=" + breaststrokeTime +
+                ", freestyleTime=" + freestyleTime +
+                '}';
+    }
 }
