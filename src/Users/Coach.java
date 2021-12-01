@@ -107,14 +107,11 @@ public class Coach extends Admin{
                 switch (strokeChoice){
                     case 1 -> {
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
-                        for (SwimmingClubMember m: competitiveJuniors)
-                        {System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime() + ".");}}
                         for (SwimmingClubMember m: competitiveJuniors) {
                             if (m.getButterflyTime() == 0.0) {
-                                System.out.printf("");
-                            } else {
-                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime() + ".");
-                            }
+                                System.out.printf("");}
+                            else {
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime() + ".");}
                         }
                     }
                     case 2 -> {
@@ -157,10 +154,8 @@ public class Coach extends Admin{
                             if (m.getButterflyTime() == 0.0) {
                                 System.out.printf("");
                             } else {
-                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime());
-                            }
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime());}
                         }
-
                     }
                     case 2 -> {
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBackstrokeTime));
