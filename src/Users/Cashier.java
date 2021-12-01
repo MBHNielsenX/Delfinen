@@ -32,5 +32,6 @@ public class Cashier extends Admin{
         System.out.println("Restbalance er DKK "+memberToCheck.getArrears());
         FileWriter.updateMembersList(allMembers);
 
+
     }
 }

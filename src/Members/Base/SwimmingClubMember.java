@@ -20,6 +20,7 @@ public abstract class SwimmingClubMember {
     private double arrears;
     private boolean isActive;
     private boolean isCompetitive = false;
+
     private double butterflyTime;
     private double backstrokeTime;
     private double breaststrokeTime;
@@ -55,6 +56,14 @@ public abstract class SwimmingClubMember {
         this.arrears = arrears;
         this.isActive = isActive;
         this.isCompetitive = isCompetitive;
+    }
+    public SwimmingClubMember(int memberId, String name, double butterflyTime, double backstrokeTime, double breaststrokeTime, double freestyleTime) {
+        this.memberId = memberId;
+        this.name = name;
+        this.butterflyTime = butterflyTime;
+        this.backstrokeTime = backstrokeTime;
+        this.breaststrokeTime = breaststrokeTime;
+        this.freestyleTime = freestyleTime;
     }
 
     @Override

@@ -19,4 +19,7 @@ public class Junior extends SwimmingClubMember {
             setContingent(500);
         }
     }
+    public Junior(int memberId, String name, double butterflyTime, double backstrokeTime, double breaststrokeTime, double freestyleTime) {
+        super (memberId,name,butterflyTime,backstrokeTime,breaststrokeTime,freestyleTime);
+    }
 }

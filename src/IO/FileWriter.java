@@ -82,22 +82,42 @@ public class FileWriter {
             }
         }
     }
-    public static void updateSeniorsList(SwimmingClubMember member) {
+
+    public static void updateSeniorsList(ArrayList<SwimmingClubMember> competitiveSeniors) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
-            writer.write(getCompetitiveInfo(member) + "\n");
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv"));
+            writer.write("");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        for (SwimmingClubMember competitiveMember:competitiveSeniors) {
+            try {
+                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
+                writer.write(getCompetitiveInfo(competitiveMember) + "\n");
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
-    public static void updateJuniorsList(SwimmingClubMember member) {
+
+    public static void updateJuniorsList(ArrayList<SwimmingClubMember> competitiveJuniors) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
-            writer.write(getCompetitiveInfo(member) + "\n");
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv",true));
+            writer.write("");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        for (SwimmingClubMember competitiveMember:competitiveJuniors) {
+            try {
+                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv",true));
+                writer.write(getCompetitiveInfo(competitiveMember) + "\n");
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
