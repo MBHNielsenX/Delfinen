@@ -27,12 +27,20 @@ public class Chairman extends Admin{
             case 1 -> {
                 Junior newJunior = new Junior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date,true);
                 newJunior.setCompetitive(isNewMemberCompetitive());
+                if (newJunior.isCompetitive()){
+                    Junior newCompetitiveJunior = new Junior(newJunior.getMemberId(),newJunior.getName(),10.0,10.0,10.0,10.0);
+                    FileWriter.writeJuniorComp(newCompetitiveJunior);
+                }
                 System.out.println("\n"+newJunior.getName()+" blev oprettet i systemet, med medlems ID: "+newJunior.getMemberId());
                 FileWriter.writeNewMember(newJunior);
             }
             case 2 -> {
                 Senior newSenior = new Senior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 newSenior.setCompetitive(isNewMemberCompetitive());
+                if (newSenior.isCompetitive()){
+                    Senior newCompetitiveSenior = new Senior (newSenior.getMemberId(), newSenior.getName(),10.0,10.0,10.0,10.0);
+                    FileWriter.writeSeniorComp(newCompetitiveSenior);
+                }
                 System.out.println("\n"+newSenior.getName()+" blev oprettet i systemet, med medlems ID: "+newSenior.getMemberId());
                 FileWriter.writeNewMember(newSenior);
             }

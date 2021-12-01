@@ -143,25 +143,71 @@ public class Coach extends Admin{
 
 
     public void topFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        /*
         System.out.println("Indtast 1 for at se Juniorsvømmere eller 2 for Seniorsvømmere.");
         int juniorOrSenior = GetUserInput.integer();
         System.out.println("Tast 1 for butterfly, 2 for rygsvømning, 3 for brystsvømning eller 4 for crawl.");
         int strokeChoice = GetUserInput.integer();
-         */
-        //competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
-        //System.out.println(competitiveSeniors);
-        for (int i = 0; i < competitiveSeniors.size(); i++) {
-            System.out.println(competitiveSeniors.get(i).getName());
-            System.out.println(competitiveSeniors.get(i).getButterflyTime());
+
+        switch(juniorOrSenior){
+            case 1 -> {
+                switch (strokeChoice){
+                    case 1 -> {
+                        competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
+                        for (SwimmingClubMember m: competitiveJuniors) {
+                            System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime() + ".");
+                        }
+                    }
+                    case 2 -> {
+                        competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBackstrokeTime));
+                        for (SwimmingClubMember m:competitiveJuniors) {
+                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i rygsvømning er: "+m.getBackstrokeTime()+".");
+                        }
+                    }
+                    case 3 -> {
+                        competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBreaststrokeTime));
+                        for (SwimmingClubMember m:competitiveJuniors) {
+                            System.out.println("Svømmer: +"+m.getName()+"'s bedste tid i brystsvømning er: "+m.getBreaststrokeTime());
+                        }
+                    }
+                    case 4 -> {
+                        competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getFreestyleTime));
+                        for (SwimmingClubMember m:competitiveJuniors) {
+                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i crawl er: "+m.getFreestyleTime());
+                        }
+                    }
+                }
+            }
+            case 2 -> {
+                switch (strokeChoice) {
+                    case 1 -> {
+                        competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
+                        for (SwimmingClubMember m :competitiveSeniors) {
+                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i butterfly er: "+m.getButterflyTime());
+                        }
+
+                    }
+                    case 2 -> {
+                        competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBackstrokeTime));
+                        for (SwimmingClubMember m :competitiveSeniors) {
+                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i rygsvømning er: "+m.getBackstrokeTime());
+                        }
+                    }
+                    case 3 -> {
+                        competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBreaststrokeTime));
+                        for (SwimmingClubMember m :competitiveSeniors) {
+                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i brystsvømning er: "+m.getBreaststrokeTime());
+                        }
+                    }
+                    case 4 -> {
+                        competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getFreestyleTime));
+                        for (SwimmingClubMember m :competitiveSeniors) {
+                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i crawl er: "+m.getFreestyleTime());
+                        }
+                    }
+                }
+            }
         }
-        competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
-        for (int i = 0; i < competitiveSeniors.size(); i++) {
-            System.out.println(competitiveSeniors.get(i).getName());
-            System.out.println(competitiveSeniors.get(i).getButterflyTime());
-        }
-        //System.out.println(competitiveSeniors);
-        }
+    }
 
 
     public void isTopFive(){
