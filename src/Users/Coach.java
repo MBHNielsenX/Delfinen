@@ -58,7 +58,7 @@ public class Coach extends Admin{
 
             switch (juniorOrSenior){
                 case 1 -> {FileWriter.writeJuniorComp(currentMember);}
-                case 2 -> {FileWriter.updateSeniorsList(competitiveSeniors);}
+                case 2 -> {FileWriter.writeSeniorComp(currentMember);}
             }
 
             registerMore = registerMoreTimes();
@@ -108,14 +108,16 @@ public class Coach extends Admin{
 
 
     public void topFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+        /*
         System.out.println("Indtast 1 for at se Juniorsvømmere eller 2 for Seniorsvømmere.");
         int juniorOrSenior = GetUserInput.integer();
         System.out.println("Tast 1 for butterfly, 2 for rygsvømning, 3 for brystsvømning eller 4 for crawl.");
         int strokeChoice = GetUserInput.integer();
-
-        competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
+         */
+        //competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
+        System.out.println(competitiveSeniors);
         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
-
+        System.out.println(competitiveSeniors);
         }
 
 
