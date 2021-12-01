@@ -38,7 +38,7 @@ public class Coach extends Admin{
 
     }
 
-    public void registerNewTime(ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time
+    public void registerNewTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time
         System.out.println("Goddag!");
         Competition currentEvent = Competition.createNewCompetition();
 
@@ -152,25 +152,41 @@ public class Coach extends Admin{
                     case 1 -> {
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
                         for (SwimmingClubMember m: competitiveJuniors) {
-                            System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime() + ".");
+                            if (m.getButterflyTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime() + ".");
+                            }
                         }
                     }
                     case 2 -> {
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBackstrokeTime));
                         for (SwimmingClubMember m:competitiveJuniors) {
-                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i rygsvømning er: "+m.getBackstrokeTime()+".");
+                            if (m.getBackstrokeTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i rygsvømning er: " + m.getBackstrokeTime() + ".");
+                            }
                         }
                     }
                     case 3 -> {
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBreaststrokeTime));
                         for (SwimmingClubMember m:competitiveJuniors) {
-                            System.out.println("Svømmer: +"+m.getName()+"'s bedste tid i brystsvømning er: "+m.getBreaststrokeTime());
+                            if (m.getBreaststrokeTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: +" + m.getName() + "'s bedste tid i brystsvømning er: " + m.getBreaststrokeTime());
+                            }
                         }
                     }
                     case 4 -> {
                         competitiveJuniors.sort(Comparator.comparingDouble(SwimmingClubMember::getFreestyleTime));
                         for (SwimmingClubMember m:competitiveJuniors) {
-                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i crawl er: "+m.getFreestyleTime());
+                            if (m.getFreestyleTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i crawl er: " + m.getFreestyleTime());
+                            }
                         }
                     }
                 }
@@ -180,26 +196,42 @@ public class Coach extends Admin{
                     case 1 -> {
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getButterflyTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
-                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i butterfly er: "+m.getButterflyTime());
+                            if (m.getButterflyTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i butterfly er: " + m.getButterflyTime());
+                            }
                         }
 
                     }
                     case 2 -> {
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBackstrokeTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
-                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i rygsvømning er: "+m.getBackstrokeTime());
+                            if (m.getBackstrokeTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: "+m.getName()+"'s bedste tid i rygsvømning er: "+m.getBackstrokeTime());
+                            }
                         }
                     }
                     case 3 -> {
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getBreaststrokeTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
-                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i brystsvømning er: "+m.getBreaststrokeTime());
+                            if (m.getBreaststrokeTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i brystsvømning er: " + m.getBreaststrokeTime());
+                            }
                         }
                     }
                     case 4 -> {
                         competitiveSeniors.sort(Comparator.comparingDouble(SwimmingClubMember::getFreestyleTime));
                         for (SwimmingClubMember m :competitiveSeniors) {
-                            System.out.println("Svømmer: "+m.getName()+"'s bedste tid i crawl er: "+m.getFreestyleTime());
+                            if (m.getFreestyleTime() == 0.0) {
+                                System.out.printf("");
+                            } else {
+                                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i crawl er: " + m.getFreestyleTime());
+                            }
                         }
                     }
                 }
