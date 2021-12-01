@@ -63,7 +63,7 @@ public class FileReader {
             BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/JuniorCompetitive.csv"));
             String currentLine;
             while ((currentLine = reader.readLine()) != null)
-                if (currentLine.contains("ID:")) {
+                if (currentLine.contains("ID :")) {
                     String[] currentLineArray = currentLine.split(": ");
                     juniorCompetitiveData.add(currentLineArray[1]);
                     for (int i = 0; i < 5; i++) {

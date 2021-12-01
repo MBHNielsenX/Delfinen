@@ -104,7 +104,7 @@ public class FileWriter {
 
     public static void updateJuniorsList(ArrayList<SwimmingClubMember> competitiveJuniors) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv",true));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv"));
             writer.write("");
             writer.close();
         } catch (IOException e) {
