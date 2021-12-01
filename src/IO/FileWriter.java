@@ -1,8 +1,10 @@
 //Mads' kode
 package IO;
 
+import Competitive.Competition;
 import Members.Base.SwimmingClubMember;
 import java.io.*;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -17,6 +19,28 @@ public class FileWriter {
             e.printStackTrace();
         }
     }
+
+    public static void writeNewCompetitionTime(SwimmingClubMember clubMember, Competition competition, String disciplin, double time, int placering){
+        try {
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/CompetitionTimes.csv",true));
+            writer.write(getCompetitionInfo(clubMember,competition,disciplin,time,placering));
+            writer.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeNewTrainingTime(SwimmingClubMember currentMember, LocalDate date, String disciplin, double time){
+        try {
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/TrainingTimes.csv",true));
+            writer.write(getTrainingInfo(currentMember, date, disciplin, time));
+            writer.close();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public static void writeJuniorComp(SwimmingClubMember member) {
         try {
             BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv",true));
@@ -34,6 +58,26 @@ public class FileWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getCompetitionInfo(SwimmingClubMember member, Competition competition, String disciplin, double time, int placering){
+        return  "ID: " + member.getMemberId() + "\n"+
+                "Navn: " + member.getName() + "\n" +
+                "Svømmestævne: " + competition.getNameOfCompetition() + "\n" +
+                "Disciplin: " + disciplin + "\n" +
+                "Tid: " + time + "\n" +
+                "Placering: " + placering+"\n";
+    }
+
+    public static String getTrainingInfo(SwimmingClubMember member, LocalDate date, String disciplin, double time){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String dateOfTraining = formatter.format(date);
+
+        return  "ID: " + member.getMemberId() + "\n"+
+                "Name: " + member.getName() + "\n" +
+                "Disciplin: " + disciplin + "\n" +
+                "Tid: " + time + "\n" +
+                "Dato: " + dateOfTraining + "\n";
     }
 
     public static String getMemberInfo(SwimmingClubMember member) {
