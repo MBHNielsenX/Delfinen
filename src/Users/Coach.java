@@ -77,16 +77,15 @@ public class Coach extends User {
         }
     }
 
-    static int inputIdOrSeeList() { //fjernet public
-        System.out.println("Indtast ID nummer for den svømmer du ønsker at registrere en tid for  -  tast 0 for at se en liste over svømmere og deres ID");
-
+    static int inputIdOrSeeList() {
+        System.out.println("For at se svømmere og ID - Tast 1\nEller\nIndtast ID nummer for den svømmer du ønsker at registrere en tid for:");
         return GetUserInput.integer();
     }
 
     public void registerNewTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time
         boolean registerMore = true;
         while (registerMore) {
-            System.out.println("Registerer en træningstid - Tast 1\t\tRegistrer en konkurrencetid - Tast 2");
+            System.out.println("Registrer en træningstid - Tast 1\t\tRegistrer en konkurrencetid - Tast 2");
             int userInput = GetUserInput.menu(2);
             switch (userInput) {
                 case 1 -> registerNewTrainingTime(competitiveJuniors,competitiveSeniors);
@@ -97,13 +96,13 @@ public class Coach extends User {
     }
 
     static boolean registerMoreTimes(){
-            System.out.println("Vil du registere flere svømmere?\nJa - Tast 1\t\tNej - Tast 2");
+            System.out.println("Vil du registrere flere svømmere?\nJa - Tast 1\t\tNej - Tast 2");
             int userInput = GetUserInput.integer();
             return userInput == 1;
     }
 
     static Competition createNewCompetition() {
-        System.out.println("Indtast navnet for det svømmestævne du har været til: ");
+        System.out.println("Indtast navnet på det stævne medlemmet har deltaget i: ");
         String nameOfEvent = GetUserInput.string();
         return new Competition(nameOfEvent);
     }
@@ -125,6 +124,7 @@ public class Coach extends User {
         return GetUserInput.doubl();
     }
 
+    //Det kan vi gøre bedre
     static void updateButterflyTime(SwimmingClubMember currentMember, double newTime){
         if (currentMember.getButterflyTime() > newTime || currentMember.getButterflyTime() == 0.0){
             currentMember.setButterflyTime(newTime);
@@ -149,6 +149,16 @@ public class Coach extends User {
         }
     }
 
+
+
+
+
+
+
+
+
+
+    //Our little gem of redundancy <3
     public void displayTopFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.integer();
