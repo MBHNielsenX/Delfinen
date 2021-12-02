@@ -16,10 +16,10 @@ public class Coach extends Admin{
     }
 
     public void registerNewTrainingTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        SwimmingClubMember currentMember = whichSwimmer(competitiveJuniors,competitiveSeniors);
+        SwimmingClubMember currentMember = findSwimmerFromID(competitiveJuniors,competitiveSeniors);
         String stroke =  whichStroke();
         LocalDate currentDate = LocalDate.now();
-        double time = timeOfSwim();
+        double time = timeToRegister();
 
         FileWriter.writeNewTrainingTime(currentMember,currentDate,stroke, time);
 
@@ -33,10 +33,10 @@ public class Coach extends Admin{
     }
 
     public void registerNewCompetitionTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        SwimmingClubMember currentMember = whichSwimmer(competitiveJuniors,competitiveSeniors);
-        Competition currentEvent = Competition.createNewCompetition();
+        SwimmingClubMember currentMember = findSwimmerFromID(competitiveJuniors,competitiveSeniors);
+        Competition currentEvent = createNewCompetition();
         String stroke = whichStroke();
-        double time = timeOfSwim();
+        double time = timeToRegister();
         System.out.println("Hvilken placering fik svømmeren ved konkurrencen?");
         int placering = GetUserInput.integer();
         FileWriter.writeNewCompetitionTime(currentMember,currentEvent,stroke,time,placering);
@@ -49,7 +49,7 @@ public class Coach extends Admin{
         }
     }
 
-    public SwimmingClubMember whichSwimmer(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
+    public SwimmingClubMember findSwimmerFromID(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.menu(2);
         System.out.println("Indtast MedlemsID for svømmeren du ønsker at registrere tid for: ");
@@ -77,7 +77,7 @@ public class Coach extends Admin{
         }
     }
 
-    public void checkFastestTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveMembers) {
+    public void updateFastestTimes(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveMembers) {
         FileWriter.updateJuniorsList(competitiveJuniors);
         FileWriter.updateSeniorsList(competitiveMembers);
     }
@@ -86,6 +86,12 @@ public class Coach extends Admin{
             System.out.println("Vil du registere flere svømmere?\nJa - Tast 1\t\tNej - Tast 2");
             int userInput = GetUserInput.integer();
             return userInput == 1;
+    }
+
+    public Competition createNewCompetition() {
+        System.out.println("Indtast navnet for det svømmestævne du har været til: ");
+        String nameOfEvent = GetUserInput.string();
+        return new Competition(nameOfEvent);
     }
 
     public String whichStroke(){
@@ -100,7 +106,7 @@ public class Coach extends Admin{
         return null;
     }
 
-    public double timeOfSwim(){
+    public double timeToRegister(){
         System.out.println("Indtast svømmerens resultat:");
         return GetUserInput.doubl();
     }
@@ -129,8 +135,8 @@ public class Coach extends Admin{
         }
     }
 
-    public void topFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        checkFastestTime(competitiveJuniors,competitiveSeniors);
+    public void displayTopFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+        updateFastestTimes(competitiveJuniors,competitiveSeniors);
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.integer();
         System.out.println("Butterfly - Tast 1\t\tRygsvømning - Tast 2\nBrystsvømning - Tast 3\t\tCrawl - Tast 4");

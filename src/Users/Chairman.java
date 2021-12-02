@@ -80,7 +80,7 @@ public class Chairman extends Admin{
         return Period.between(birthdate,currentDate).getYears();
     }
 
-    public static boolean isNewMemberCompetitive() {
+    public boolean isNewMemberCompetitive() {
         System.out.println("Ønsker det nye medlem at blive oprettet som konkurrencesvømmer?\nTast 1 for 'Ja' - Tast 2 for 'Nej'.");
         int userInput = GetUserInput.integer();
         return userInput == 1;
