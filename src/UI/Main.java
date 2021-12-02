@@ -56,14 +56,10 @@ public class Main {
             case 0 -> getChairmanMenu(users,allMembers,competitiveJuniors,competitiveSeniors);
             case 1 -> getCashierMenu(users,allMembers,competitiveJuniors,competitiveSeniors);
             case 2 -> getCoachMenu(users,allMembers,competitiveJuniors,competitiveSeniors);
-            case 0 -> getChairmanMenu(users,allMembers);
-            case 1 -> getCashierMenu(users,allMembers);
-            case 2 -> getCoachMenu(users, competitiveJuniors, competitiveSeniors);
         }
     }
 
-    public static void getChairmanMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-    public static void getChairmanMenu(User[] users, ArrayList<SwimmingClubMember> allMembers){
+    public static void getChairmanMenu(User[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         Chairman cn = (Chairman) users[0];
         int userChoice = 0;
         while (userChoice!=3){
@@ -77,7 +73,7 @@ public class Main {
         }
     }
 
-    public static void getCashierMenu(User[] users, ArrayList<SwimmingClubMember> allMembers){
+    public static void getCashierMenu(User[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         Cashier cr = (Cashier) users[1];
         int userChoice = 0;
         while (userChoice!=4){
@@ -102,7 +98,7 @@ public class Main {
         }
     }
 
-    public static void getCoachMenu(User[] users, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Ændret til static
+    public static void getCoachMenu(User[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Ændret til static
         Coach ch = (Coach) users[2];
         int userChoice = 0;
         while (userChoice!=3){
