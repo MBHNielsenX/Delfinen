@@ -30,7 +30,6 @@ public class Cashier extends Admin{
         memberToCheck.setArrears(memberToCheck.getArrears()-amountPayed);
         System.out.println("Betaling af DKK "+amountPayed+" er registreret for medlemmet, med medlemsID: "+memberId);
         System.out.println("Restbalance er DKK "+memberToCheck.getArrears());
-        FileWriter.updateMembersList(allMembers);
 
 
     }

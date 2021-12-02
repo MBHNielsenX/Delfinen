@@ -1,5 +1,6 @@
 //Jens' kode
 package UI;
+import IO.FileWriter;
 import IO.GetUserInput;
 import IO.FileReader;
 import Members.Base.SwimmingClubMember;
@@ -15,9 +16,11 @@ public class Main {
                 new Coach("Mikkel", "dig", "jens.dk")};
 
         SwimmingClubMember.addExistingMemberIdsToStaticArraylist();
+
         ArrayList<SwimmingClubMember> allMembers = FileReader.getAllExistingMembersFromCsvToArrayList(FileReader.getExistingMemberDataToArrayList());
         ArrayList<SwimmingClubMember> juniorCompetitiveMembers = FileReader.getExistingCompetitiveJuniorsFromCsvToArrayList(FileReader.getAllCompetitiveJuniorsToArrayList());//test
         ArrayList<SwimmingClubMember> seniorCompetitiveMembers = FileReader.getExistingCompetitiveSeniorsFromCsvToArrayList(FileReader.getAllCompetitiveSeniorsToArrayList());//test
+
         while (true){
             int userNumber = logInSequence(users);
             giveRespectiveMenuOptions(userNumber,users,allMembers, juniorCompetitiveMembers, seniorCompetitiveMembers);
@@ -50,16 +53,17 @@ public class Main {
 
     public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers, ArrayList<SwimmingClubMember>competitiveJuniors, ArrayList<SwimmingClubMember>competitiveSeniors){
         switch(userNumber){
-            case 0 -> getChairmanMenu(users,allMembers);
-            case 1 -> getCashierMenu(users,allMembers);
-            case 2 -> getCoachMenu(users,allMembers, competitiveJuniors, competitiveSeniors);
+            case 0 -> getChairmanMenu(users,allMembers,competitiveJuniors,competitiveSeniors);
+            case 1 -> getCashierMenu(users,allMembers,competitiveJuniors,competitiveSeniors);
+            case 2 -> getCoachMenu(users,allMembers,competitiveJuniors,competitiveSeniors);
         }
     }
 
-    public static void getChairmanMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
+    public static void getChairmanMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         Chairman cn = (Chairman) users[0];
         int userChoice = 0;
         while (userChoice!=3){
+            FileWriter.updateMembersList(allMembers,competitiveJuniors,competitiveSeniors,"general");
             System.out.println("\nRegistrer nyt medlem i Svømmeklubben Delfinen - Tast 1\tVis alle medlemmer - Tast 2\nForlad menu - Tast 3");
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
@@ -69,10 +73,11 @@ public class Main {
         }
     }
 
-    public static void getCashierMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
+    public static void getCashierMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         Cashier cr = (Cashier) users[1];
         int userChoice = 0;
         while (userChoice!=4){
+            FileWriter.updateMembersList(allMembers,competitiveJuniors,competitiveSeniors,"general");
             System.out.println("\nRegistrer kontingentbetaling - Tast 1\t\tTjek restance for medlem - Tast 2\nTjek årlig indkomst - Tast 3\t\t\t\tForlad menu - Tast 4");
             userChoice = GetUserInput.menu(4);
             switch (userChoice){
@@ -97,6 +102,8 @@ public class Main {
         Coach ch = (Coach) users[2];
         int userChoice = 0;
         while (userChoice!=3){
+            FileWriter.updateMembersList(allMembers,competitiveJuniors,competitiveSeniors,"junior");
+            FileWriter.updateMembersList(allMembers,competitiveJuniors,competitiveSeniors,"senior");
             System.out.println("\nRegistrer konkurrenceresultat for medlem - Tast 1\t\tTjek Delfinens Top 5-resultater - Tast 2\nForlad menu - Tast 3");
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
