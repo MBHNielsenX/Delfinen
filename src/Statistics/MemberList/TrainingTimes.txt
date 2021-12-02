@@ -1,0 +1,21 @@
+ID: 66666
+Name: Lucifer
+Disciplin: rygsvømning
+Tid: 1.57
+Dato: 02-12-2021
+ID: 96331
+Name: Jens Legarth Ryge
+Disciplin: crawl
+Tid: 1.32
+Dato: 02-12-2021
+ID: 96331
+Name: Jens Legarth Ryge
+Disciplin: rygsvømning
+Tid: 1.22
+Dato: 02-12-2021
+
+ID: 96331
+Name: Jens Legarth Ryge
+Disciplin: butterfly
+Tid: 2.22
+Dato: 02-12-2021

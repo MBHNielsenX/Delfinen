@@ -1,20 +1,20 @@
-ID : 72960
-Name: Mikkel Meerwaldt Jørgensen
-Butterfly: 1.35
-Rygsvømmning: 1.54
-Brystsvømmning: 2.11
-Crawl: 0.0
-
-ID : 72888
-Name: Mads Bøgh Højer Nielsen
-Butterfly: 1.46
-Rygsvømmning: 0.0
-Brystsvømmning: 0.0
-Crawl: 1.32
-
 ID : 96331
 Name: Jens Legarth Ryge
-Butterfly: 1.41
+Butterfly: 0.0
+Rygsvømmning: 0.0
+Brystsvømmning: 0.0
+Crawl: 0.0
+
+ID : 72960
+Name: Mikkel Meerwaldt Jørgensen
+Butterfly: 0.0
+Rygsvømmning: 0.0
+Brystsvømmning: 0.0
+Crawl: 0.0
+
+ID : 70888
+Name: Mads Bøgh Højer Nielsen
+Butterfly: 0.0
 Rygsvømmning: 0.0
 Brystsvømmning: 0.0
 Crawl: 0.0
