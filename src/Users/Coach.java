@@ -42,7 +42,7 @@ public class Coach extends User {
         int placering = GetUserInput.integer();
         FileWriter.writeNewCompetitionTime(currentMember,currentEvent,stroke,time,placering);
 
-        switch (Objects.requireNonNull(stroke)) {
+        switch (stroke) {
             case "butterfly" -> updateButterflyTime(currentMember, time);
             case "backstroke" -> updateBackstrokeTime(currentMember, time);
             case "breaststroke" -> updateBreaststrokeTime(currentMember, time);
