@@ -4,7 +4,6 @@ package IO;
 import java.util.Scanner;
 
 public class GetUserInput {
-
     public static String string(){//Jens
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
@@ -43,7 +42,4 @@ public class GetUserInput {
         }
         return userInput;
     }
-
-
-
 }

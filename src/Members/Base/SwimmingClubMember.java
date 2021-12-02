@@ -26,7 +26,6 @@ public abstract class SwimmingClubMember {
     private double breaststrokeTime;
     private double freestyleTime;
 
-
     public SwimmingClubMember(String name, String address, String email, int phoneNumber, LocalDate dateOfBirth, boolean isActive) {
         Random rand = new Random();
         this.memberId = rand.nextInt(89999)+10000;
@@ -134,10 +133,6 @@ public abstract class SwimmingClubMember {
         isCompetitive = competitive;
     }
 
-    public void setIsActive(boolean active){
-        isActive = active;
-    }
-
     public void setButterflyTime(double butterflyTime) {
         this.butterflyTime = butterflyTime;
     }
@@ -152,11 +147,6 @@ public abstract class SwimmingClubMember {
 
     public void setFreestyleTime(double freestyleTime) {
         this.freestyleTime = freestyleTime;
-    }
-
-
-    public static ArrayList<Integer> getExistingMemberIds() {
-        return existingMemberIds;
     }
 
     public double getButterflyTime() {
@@ -182,24 +172,5 @@ public abstract class SwimmingClubMember {
             int idInt = Integer.parseInt(currentIdArray[1]);
             existingMemberIds.add(idInt);
         }
-    }
-
-    public String bumass() {
-        return "SwimmingClubMember{" +
-                "memberId=" + memberId +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", dateOfBirth=" + dateOfBirth +
-                ", contingent=" + contingent +
-                ", arrears=" + arrears +
-                ", isActive=" + isActive +
-                ", isCompetitive=" + isCompetitive +
-                ", butterflyTime=" + butterflyTime +
-                ", backstrokeTime=" + backstrokeTime +
-                ", breaststrokeTime=" + breaststrokeTime +
-                ", freestyleTime=" + freestyleTime +
-                '}';
     }
 }

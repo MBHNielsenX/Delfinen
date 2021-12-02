@@ -12,7 +12,7 @@ public class FileReader {
     public static ArrayList<String> getExistingMemberDataToArrayList(){
         ArrayList<String> memberData = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.csv"));
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.txt"));
             String currentLine;
             while((currentLine = reader.readLine()) !=null)
                 if (currentLine.contains("ID:")) {
@@ -60,7 +60,7 @@ public class FileReader {
     public static ArrayList<String> getAllCompetitiveJuniorsToArrayList() {
         ArrayList<String> juniorCompetitiveData = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/JuniorCompetitive.csv"));
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/JuniorCompetitive.txt"));
             String currentLine;
             while ((currentLine = reader.readLine()) != null)
                 if (currentLine.contains("ID :")) {
@@ -98,7 +98,7 @@ public class FileReader {
     public static ArrayList<String> getAllCompetitiveSeniorsToArrayList() {
         ArrayList<String> seniorsCompetitiveData = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/SeniorCompetitive.csv"));
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/SeniorCompetitive.txt"));
             String currentLine;
             while ((currentLine = reader.readLine()) != null)
                 if (currentLine.contains("ID :")) {
@@ -133,13 +133,12 @@ public class FileReader {
         return existingCompetitiveSeniors;
     }
 
-
     //Mads' code
     public static ArrayList<String> getMemberIdsFromFile() {
         //Method that grabs the IDs form the .csv file and is used for the existingMemberIDs variable in SwimmingClubMember.java
         ArrayList<String> grabbedIDFromFile = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.csv"));
+            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.txt"));
             String currentLine;
             while((currentLine = reader.readLine()) !=null)
                 if (currentLine.contains("ID")) {
@@ -152,41 +151,5 @@ public class FileReader {
 
 
         return grabbedIDFromFile;
-    }
-    public static void printMembersList() {
-        try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/Members.csv"));
-            String line;
-            System.out.println();
-            while((line = reader.readLine()) !=null)
-                System.out.println(line);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void printJuniorCompetitiveList() {
-        try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/JuniorCompetitive.csv"));
-            String line;
-            System.out.println();
-            while((line = reader.readLine()) !=null)
-                System.out.println(line);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void printSeniorCompetitiveList() {
-        try {
-            BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/SeniorCompetitive.csv"));
-            String line;
-            System.out.println();
-            while((line = reader.readLine()) !=null)
-                System.out.println(line);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

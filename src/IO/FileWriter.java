@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class FileWriter {
     public static void writeNewMember(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.csv",true));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.txt",true));
             writer.write(getMemberInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
@@ -22,7 +22,7 @@ public class FileWriter {
 
     public static void writeNewCompetitionTime(SwimmingClubMember clubMember, Competition competition, String disciplin, double time, int placering){
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/CompetitionTimes.csv",true));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/CompetitionTimes.txt",true));
             writer.write(getCompetitionInfo(clubMember,competition,disciplin,time,placering));
             writer.close();
         }catch (IOException e){
@@ -32,7 +32,7 @@ public class FileWriter {
 
     public static void writeNewTrainingTime(SwimmingClubMember currentMember, LocalDate date, String disciplin, double time){
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/TrainingTimes.csv",true));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/TrainingTimes.txt",true));
             writer.write(getTrainingInfo(currentMember, date, disciplin, time));
             writer.close();
 
@@ -43,16 +43,17 @@ public class FileWriter {
 
     public static void writeJuniorComp(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv",true));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.txt",true));
             writer.write(getCompetitiveInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public static void writeSeniorComp(SwimmingClubMember member) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.txt",true));
             writer.write(getCompetitiveInfo(member) + "\n");
             writer.close();
         } catch (IOException e) {
@@ -95,6 +96,7 @@ public class FileWriter {
                 "Is member active: " + member.isActive() + "\n" +
                 "Is member competitive: " + member.isCompetitive() + "\n";
     }
+
     public static String getCompetitiveInfo(SwimmingClubMember member) {
         return "ID : " + member.getMemberId() + "\n" +
                 "Name: " + member.getName() + "\n" +
@@ -108,7 +110,7 @@ public class FileWriter {
     public static void updateMembersList(ArrayList<SwimmingClubMember> allMembers){
         //Append set to false -> write nothing = wipe file
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.csv"));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.txt"));
             writer.write("");
             writer.close();
         } catch (IOException e) {
@@ -118,7 +120,7 @@ public class FileWriter {
         //Write new members to file
         for (SwimmingClubMember member:allMembers) {
             try {
-                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.csv",true));
+                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/Members.txt",true));
                 writer.write(getMemberInfo(member) + "\n");
                 writer.close();
             } catch (IOException e) {
@@ -129,7 +131,7 @@ public class FileWriter {
 
     public static void updateSeniorsList(ArrayList<SwimmingClubMember> competitiveSeniors) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv"));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.txt"));
             writer.write("");
             writer.close();
         } catch (IOException e) {
@@ -137,7 +139,7 @@ public class FileWriter {
         }
         for (SwimmingClubMember competitiveMember:competitiveSeniors) {
             try {
-                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.csv",true));
+                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/SeniorCompetitive.txt",true));
                 writer.write(getCompetitiveInfo(competitiveMember) + "\n");
                 writer.close();
             } catch (IOException e) {
@@ -148,7 +150,7 @@ public class FileWriter {
 
     public static void updateJuniorsList(ArrayList<SwimmingClubMember> competitiveJuniors) {
         try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv"));
+            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.txt"));
             writer.write("");
             writer.close();
         } catch (IOException e) {
@@ -156,7 +158,7 @@ public class FileWriter {
         }
         for (SwimmingClubMember competitiveMember:competitiveJuniors) {
             try {
-                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.csv",true));
+                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/MemberList/JuniorCompetitive.txt",true));
                 writer.write(getCompetitiveInfo(competitiveMember) + "\n");
                 writer.close();
             } catch (IOException e) {

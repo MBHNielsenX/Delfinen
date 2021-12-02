@@ -19,6 +19,7 @@ public class Senior extends SwimmingClubMember{
             setContingent(500);
         }
     }
+
     public Senior(int memberId, String name, double butterflyTime, double backstrokeTime, double breaststrokeTime, double freestyleTime) {
         super (memberId,name,butterflyTime,backstrokeTime,breaststrokeTime,freestyleTime);
     }

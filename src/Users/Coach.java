@@ -15,7 +15,6 @@ public class Coach extends Admin{
         super(userName, password, email);
     }
 
-
     public void registerNewTrainingTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         SwimmingClubMember currentMember = whichSwimmer(competitiveJuniors,competitiveSeniors);
         String stroke =  whichStroke();
@@ -51,9 +50,9 @@ public class Coach extends Admin{
     }
 
     public SwimmingClubMember whichSwimmer(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
-        System.out.println("Tast 1 for juniorsvømmere eller 2 for seniorsvømmere!");
+        System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.menu(2);
-        System.out.println("Hvilken svømmer vil du register en tid til?");
+        System.out.println("Indtast MedlemsID for svømmeren du ønsker at registrere tid for: ");
         int swimmerID = GetUserInput.integer();
         switch (juniorOrSenior) {
             case 1 -> {
@@ -68,7 +67,7 @@ public class Coach extends Admin{
     public void registerNewTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time
         boolean registerMore = true;
         while (registerMore) {
-            System.out.println("Tast 1 for at registerer en træningstid eller tast 2 for at registrer en konkurrencetid.");
+            System.out.println("Registerer en træningstid - Tast 1\t\tRegistrer en konkurrencetid - Tast 2");
             int userInput = GetUserInput.menu(2);
             switch (userInput) {
                 case 1 -> registerNewTrainingTime(competitiveJuniors,competitiveSeniors);
@@ -84,13 +83,13 @@ public class Coach extends Admin{
     }
 
     public boolean registerMoreTimes(){
-            System.out.println("Vil du registere flere svømmere?\n1 for ja, 2 for nej.");
+            System.out.println("Vil du registere flere svømmere?\nJa - Tast 1\t\tNej - Tast 2");
             int userInput = GetUserInput.integer();
             return userInput == 1;
     }
 
     public String whichStroke(){
-        System.out.println("Tast 1 for butterfly.\nTast 2 for rygsvømning.\nTast 3 for brystsvømning.\nTast 4 for crawl.");
+        System.out.println("Butterfly - Tast 1\t\tRygsvømning - Tast 2\nBrystsvømning - Tast 3\t\tCrawl - Tast 4");
         int userInput = GetUserInput.menu(4);
         switch (userInput){
             case 1 -> {return "butterfly";}
@@ -102,7 +101,7 @@ public class Coach extends Admin{
     }
 
     public double timeOfSwim(){
-        System.out.println("Indtast tiden som der blev svømmet på.");
+        System.out.println("Indtast svømmerens resultat:");
         return GetUserInput.doubl();
     }
 
@@ -132,9 +131,9 @@ public class Coach extends Admin{
 
     public void topFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         checkFastestTime(competitiveJuniors,competitiveSeniors);
-        System.out.println("Indtast 1 for at se Juniorsvømmere eller 2 for Seniorsvømmere.");
+        System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.integer();
-        System.out.println("Tast 1 for butterfly, 2 for rygsvømning, 3 for brystsvømning eller 4 for crawl.");
+        System.out.println("Butterfly - Tast 1\t\tRygsvømning - Tast 2\nBrystsvømning - Tast 3\t\tCrawl - Tast 4");
         int strokeChoice = GetUserInput.integer();
 
         switch(juniorOrSenior){
@@ -226,5 +225,4 @@ public class Coach extends Admin{
             }
         }
     }
-
 }

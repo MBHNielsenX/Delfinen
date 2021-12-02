@@ -38,7 +38,18 @@ Email: 42069xxx@gmail.com
 Phone number: 12345678
 Date of birth: 10-10-2010
 Contingent: 0
-Arrears: 1000.0
+Arrears: 0.0
+Is member active: true
+Is member competitive: true
+
+ID: 95511
+Name: John Mortensen Travolta
+Address: Ryesgade 12 1. TV, 2100 København Ø
+Email: jmtravolta@hotmail.com
+Phone number: 22645022
+Date of birth: 10-06-1977
+Contingent: 1600
+Arrears: 1600.0
 Is member active: true
 Is member competitive: true
 
