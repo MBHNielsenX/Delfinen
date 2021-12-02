@@ -24,7 +24,7 @@ public class Main {
         }
     }
 
-    public static int logInSequence(User[] users) {
+    static int logInSequence(User[] users) {
         int userNumber = 4;
         System.out.println("Indtast dit brugernavn: ");
         while (userNumber > 3) {
@@ -52,7 +52,7 @@ public class Main {
         switch(userNumber){
             case 0 -> getChairmanMenu(users,allMembers);
             case 1 -> getCashierMenu(users,allMembers);
-            case 2 -> getCoachMenu(users,allMembers, competitiveJuniors, competitiveSeniors);
+            case 2 -> getCoachMenu(users, competitiveJuniors, competitiveSeniors);
         }
     }
 
@@ -64,7 +64,7 @@ public class Main {
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
                 case 1 -> cn.registerNewMember();
-                case 2 -> cn.printAllMembersNamesAndIds(allMembers);
+                case 2 -> cn.printAllMembersNamesAndIds(allMembers); //Skal rettes
             }
         }
     }
@@ -93,7 +93,7 @@ public class Main {
         }
     }
 
-    public static void getCoachMenu(User[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+    public static void getCoachMenu(User[] users, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Ændret til static
         Coach ch = (Coach) users[2];
         int userChoice = 0;
         while (userChoice!=3){

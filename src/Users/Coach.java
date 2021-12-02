@@ -69,14 +69,14 @@ public class Coach extends User {
         } return null;
     }
 
-    public static void printMemberAndId (ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors, int juniorOrSenior) {
+    public void printMemberAndId (ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors, int juniorOrSenior) { //fjernet static
         switch (juniorOrSenior) {
             case 1 -> Chairman.printAllMembersNamesAndIds(competitiveJuniors);
             case 2 -> Chairman.printAllMembersNamesAndIds(competitiveSeniors);
         }
     }
 
-    public static int inputIdOrSeeList() {
+    static int inputIdOrSeeList() { //fjernet public
         System.out.println("Indtast ID nummer for den svømmer du ønsker at registrere en tid for  -  tast 0 for at se en liste over svømmere og deres ID");
 
         return GetUserInput.integer();
