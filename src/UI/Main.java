@@ -62,6 +62,7 @@ public class Main {
         Chairman cn = (Chairman) users[0];
         int userChoice = 0;
         while (userChoice!=3){
+            FileWriter.updateMembersList(allMembers,competitiveJuniors,competitiveSeniors,"general");
             System.out.println("\nRegistrer nyt medlem i Svømmeklubben Delfinen - Tast 1\tVis alle medlemmer - Tast 2\nForlad menu - Tast 3");
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
