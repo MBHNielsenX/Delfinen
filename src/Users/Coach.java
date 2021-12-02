@@ -96,11 +96,6 @@ public class Coach extends User {
         }
     }
 
-    static void updateFastestTimes(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveMembers) {
-        FileWriter.updateJuniorsList(competitiveJuniors);
-        FileWriter.updateSeniorsList(competitiveMembers);
-    }
-
     static boolean registerMoreTimes(){
             System.out.println("Vil du registere flere svømmere?\nJa - Tast 1\t\tNej - Tast 2");
             int userInput = GetUserInput.integer();
@@ -155,7 +150,6 @@ public class Coach extends User {
     }
 
     public void displayTopFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        updateFastestTimes(competitiveJuniors,competitiveSeniors);
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.integer();
         System.out.println("Butterfly - Tast 1\t\tRygsvømning - Tast 2\nBrystsvømning - Tast 3\t\tCrawl - Tast 4");

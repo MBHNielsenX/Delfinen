@@ -17,15 +17,15 @@ public class Chairman extends User {
     }
 
     public void registerNewMember(){
-        PotentialMember currentNember = newMember();
+        PotentialMember currentMember = newMember();
 
-        LocalDate date = convertToDate(currentNember.getBirthdate());
+        LocalDate date = convertToDate(currentMember.getBirthdate());
 
-        int howOldInYears = getAge(convertToDate(currentNember.getBirthdate()));
+        int howOldInYears = getAge(convertToDate(currentMember.getBirthdate()));
 
         switch (whichMembership(howOldInYears)) {
             case 1 -> {
-                Junior newJunior = new Junior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date,true);
+                Junior newJunior = new Junior(currentMember.getName(), currentMember.getAddress(), currentMember.getEmail(), currentMember.getPhoneNumber(), date,true);
                 newJunior.setCompetitive(isNewMemberCompetitive());
                 if (newJunior.isCompetitive()){
                     Junior newCompetitiveJunior = new Junior(newJunior.getMemberId(),newJunior.getName(),0.0,0.0,0.0,0.0);
@@ -35,7 +35,7 @@ public class Chairman extends User {
                 FileWriter.writeNewMember(newJunior);
             }
             case 2 -> {
-                Senior newSenior = new Senior(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
+                Senior newSenior = new Senior(currentMember.getName(), currentMember.getAddress(), currentMember.getEmail(), currentMember.getPhoneNumber(), date, true);
                 newSenior.setCompetitive(isNewMemberCompetitive());
                 if (newSenior.isCompetitive()){
                     Senior newCompetitiveSenior = new Senior (newSenior.getMemberId(), newSenior.getName(),0.0,0.0,0.0,0.0);
@@ -45,7 +45,7 @@ public class Chairman extends User {
                 FileWriter.writeNewMember(newSenior);
             }
             case 3 -> {
-                Pensioner newPensioner = new Pensioner(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
+                Pensioner newPensioner = new Pensioner(currentMember.getName(), currentMember.getAddress(), currentMember.getEmail(), currentMember.getPhoneNumber(), date, true);
                 System.out.println("\n"+newPensioner.getName()+" blev oprettet i systemet, med medlems ID: "+newPensioner.getMemberId());
                 FileWriter.writeNewMember(newPensioner);
             }

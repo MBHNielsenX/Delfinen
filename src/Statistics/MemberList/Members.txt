@@ -5,7 +5,7 @@ Email: jlr@pol.dk
 Phone number: 28683398
 Date of birth: 10-05-1998
 Contingent: 1600
-Arrears: 950.0
+Arrears: 0.0
 Is member active: false
 Is member competitive: false
 

@@ -131,7 +131,16 @@ public class FileWriter {
         }
 
         //Write new members to file
-        for (SwimmingClubMember member:allMembers) {
+        ArrayList<SwimmingClubMember> memberList = null;
+        if (memberType.equals("general")){
+            memberList = allMembers;
+        } else if (memberType.equals("junior")){
+            memberList = juniorCompetitive;
+        } else if (memberType.equals("senior")){
+            memberList = seniorCompetitive;
+        }
+
+        for (SwimmingClubMember member:memberList) {
             try {
                 BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(filePath,true));
                 if (memberType.equals("general")){
@@ -139,46 +148,6 @@ public class FileWriter {
                 } else if (memberType.equals("junior") || memberType.equals("senior")){
                     writer.write(getCompetitiveInfo(member) + "\n");
                 }
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void updateSeniorsList(ArrayList<SwimmingClubMember> allMembers) {
-        String senior ="src/Statistics/MemberList/SeniorCompetitive.txt";
-        try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(senior));
-            writer.write("");
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (SwimmingClubMember member:allMembers) {
-            try {
-                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(senior,true));
-
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void updateJuniorsList(ArrayList<SwimmingClubMember> allMembers) {
-        String junior ="src/Statistics/MemberList/JuniorCompetitive.txt";
-        try {
-            BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(junior));
-            writer.write("");
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (SwimmingClubMember member:allMembers) {
-            try {
-                BufferedWriter writer = new BufferedWriter(new java.io.FileWriter(junior,true));
-                writer.write(getCompetitiveInfo(member) + "\n");
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
