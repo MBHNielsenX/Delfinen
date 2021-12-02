@@ -53,7 +53,7 @@ public class Chairman extends User {
         }
     }
 
-    public PotentialMember newMember(){
+    static PotentialMember newMember(){ //ændret til static
         System.out.println("\nIndtast det nye medlems navn:");
         String name = GetUserInput.string();
         System.out.println("Indtast det nye medlems adresse:");
@@ -80,7 +80,7 @@ public class Chairman extends User {
         return Period.between(birthdate,currentDate).getYears();
     }
 
-    public boolean isNewMemberCompetitive() {
+    static boolean isNewMemberCompetitive() { //ændret til static
         System.out.println("Ønsker det nye medlem at blive oprettet som konkurrencesvømmer?\nTast 1 for 'Ja' - Tast 2 for 'Nej'.");
         int userInput = GetUserInput.integer();
         return userInput == 1;

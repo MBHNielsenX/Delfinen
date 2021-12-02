@@ -8,6 +8,7 @@ import Members.Base.SwimmingClubMember;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 
 
 public class Coach extends User {
@@ -41,7 +42,7 @@ public class Coach extends User {
         int placering = GetUserInput.integer();
         FileWriter.writeNewCompetitionTime(currentMember,currentEvent,stroke,time,placering);
 
-        switch (stroke) {
+        switch (Objects.requireNonNull(stroke)) {
             case "butterfly" -> updateButterflyTime(currentMember, time);
             case "backstroke" -> updateBackstrokeTime(currentMember, time);
             case "breaststroke" -> updateBreaststrokeTime(currentMember, time);
@@ -69,7 +70,7 @@ public class Coach extends User {
         } return null;
     }
 
-    public void printMemberAndId (ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors, int juniorOrSenior) { //fjernet static
+    static void printMemberAndId (ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors, int juniorOrSenior) { //fjernet static
         switch (juniorOrSenior) {
             case 1 -> Chairman.printAllMembersNamesAndIds(competitiveJuniors);
             case 2 -> Chairman.printAllMembersNamesAndIds(competitiveSeniors);
@@ -95,18 +96,18 @@ public class Coach extends User {
         }
     }
 
-    public void updateFastestTimes(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveMembers) {
+    static void updateFastestTimes(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveMembers) {
         FileWriter.updateJuniorsList(competitiveJuniors);
         FileWriter.updateSeniorsList(competitiveMembers);
     }
 
-    public boolean registerMoreTimes(){
+    static boolean registerMoreTimes(){
             System.out.println("Vil du registere flere svømmere?\nJa - Tast 1\t\tNej - Tast 2");
             int userInput = GetUserInput.integer();
             return userInput == 1;
     }
 
-    public Competition createNewCompetition() {
+    static Competition createNewCompetition() {
         System.out.println("Indtast navnet for det svømmestævne du har været til: ");
         String nameOfEvent = GetUserInput.string();
         return new Competition(nameOfEvent);
@@ -124,7 +125,7 @@ public class Coach extends User {
         return null;
     }
 
-    public double timeToRegister(){
+    static double timeToRegister(){
         System.out.println("Indtast svømmerens resultat:");
         return GetUserInput.doubl();
     }
