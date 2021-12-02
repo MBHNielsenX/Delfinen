@@ -16,7 +16,7 @@ public class Chairman extends User {
         super(userName, password, email);
     }
 
-    public void registerNewMember(){
+    public void registerNewMember(ArrayList<SwimmingClubMember> allMembers){
         PotentialMember currentNember = newMember();
 
         LocalDate date = convertToDate(currentNember.getBirthdate());
@@ -32,6 +32,7 @@ public class Chairman extends User {
                     FileWriter.writeJuniorComp(newCompetitiveJunior);
                 }
                 System.out.println("\n"+newJunior.getName()+" blev oprettet i systemet, med medlems ID: "+newJunior.getMemberId());
+                allMembers.add(newJunior);
                 FileWriter.writeNewMember(newJunior);
             }
             case 2 -> {
@@ -42,11 +43,13 @@ public class Chairman extends User {
                     FileWriter.writeSeniorComp(newCompetitiveSenior);
                 }
                 System.out.println("\n"+newSenior.getName()+" blev oprettet i systemet, med medlems ID: "+newSenior.getMemberId());
+                allMembers.add(newSenior);
                 FileWriter.writeNewMember(newSenior);
             }
             case 3 -> {
                 Pensioner newPensioner = new Pensioner(currentNember.getName(), currentNember.getAddress(), currentNember.getEmail(), currentNember.getPhoneNumber(), date, true);
                 System.out.println("\n"+newPensioner.getName()+" blev oprettet i systemet, med medlems ID: "+newPensioner.getMemberId());
+                allMembers.add(newPensioner);
                 FileWriter.writeNewMember(newPensioner);
             }
             default -> System.out.println("Fejl, prøv igen");

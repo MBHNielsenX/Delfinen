@@ -67,7 +67,7 @@ public class Main {
             System.out.println("\nRegistrer nyt medlem i Svømmeklubben Delfinen - Tast 1\tVis alle medlemmer - Tast 2\nForlad menu - Tast 3");
             userChoice = GetUserInput.menu(3);
             switch (userChoice){
-                case 1 -> cn.registerNewMember();
+                case 1 -> cn.registerNewMember(allMembers);
                 case 2 -> cn.printAllMembersNamesAndIds(allMembers); //Skal rettes
             }
         }

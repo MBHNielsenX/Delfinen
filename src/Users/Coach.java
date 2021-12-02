@@ -16,7 +16,7 @@ public class Coach extends User {
         super(userName, password, email);
     }
 
-    public void registerNewTrainingTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+    static void registerNewTrainingTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         SwimmingClubMember currentMember = findSwimmerFromID(competitiveJuniors,competitiveSeniors);
         String stroke =  whichStroke();
         LocalDate currentDate = LocalDate.now();
@@ -33,7 +33,7 @@ public class Coach extends User {
 
     }
 
-    public void registerNewCompetitionTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+    static void registerNewCompetitionTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         SwimmingClubMember currentMember = findSwimmerFromID(competitiveJuniors,competitiveSeniors);
         Competition currentEvent = createNewCompetition();
         String stroke = whichStroke();
@@ -50,7 +50,7 @@ public class Coach extends User {
         }
     }
 
-    public SwimmingClubMember findSwimmerFromID(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
+    static SwimmingClubMember findSwimmerFromID(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.menu(2);
         int swimmerID = inputIdOrSeeList();
@@ -113,7 +113,7 @@ public class Coach extends User {
         return new Competition(nameOfEvent);
     }
 
-    public String whichStroke(){
+    static String whichStroke(){
         System.out.println("Butterfly - Tast 1\t\tRygsvømning - Tast 2\nBrystsvømning - Tast 3\t\tCrawl - Tast 4");
         int userInput = GetUserInput.menu(4);
         switch (userInput){
@@ -130,25 +130,25 @@ public class Coach extends User {
         return GetUserInput.doubl();
     }
 
-    public void updateButterflyTime(SwimmingClubMember currentMember, double newTime){
+    static void updateButterflyTime(SwimmingClubMember currentMember, double newTime){
         if (currentMember.getButterflyTime() > newTime || currentMember.getButterflyTime() == 0.0){
             currentMember.setButterflyTime(newTime);
         }
     }
 
-    public void updateBackstrokeTime(SwimmingClubMember currentMember, double newTime){
+    static void updateBackstrokeTime(SwimmingClubMember currentMember, double newTime){
         if (currentMember.getBackstrokeTime() > newTime && currentMember.getBackstrokeTime() == 0.0){
             currentMember.setBackstrokeTime(newTime);
         }
     }
 
-    public void updateBreaststrokeTime(SwimmingClubMember currentMember, double newTime){
+    static void updateBreaststrokeTime(SwimmingClubMember currentMember, double newTime){
         if (currentMember.getBreaststrokeTime() > newTime && currentMember.getBreaststrokeTime() == 0.0){
             currentMember.setBreaststrokeTime(newTime);
         }
     }
 
-    public void updateFreestyleTime(SwimmingClubMember currentMember, double newTime){
+    static void updateFreestyleTime(SwimmingClubMember currentMember, double newTime){
         if (currentMember.getFreestyleTime() > newTime && currentMember.getFreestyleTime() == 0.0){
             currentMember.setFreestyleTime(newTime);
         }
