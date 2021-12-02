@@ -7,7 +7,7 @@ import Members.MemberHandler;
 
 import java.util.ArrayList;
 
-public class Cashier extends Admin{
+public class Cashier extends User {
     public Cashier(String userName, String password, String email) {
         super(userName, password, email);
     }

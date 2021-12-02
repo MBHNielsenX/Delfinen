@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Admin[] users = {
+        User[] users = {
                 new Chairman("Mads", "hej", "jens.dk"),
                 new Cashier("Jens", "nej", "jens.dk"),
                 new Coach("Mikkel", "dig", "jens.dk")};
@@ -24,7 +24,7 @@ public class Main {
         }
     }
 
-    public static int logInSequence(Admin[] users) {
+    public static int logInSequence(User[] users) {
         int userNumber = 4;
         System.out.println("Indtast dit brugernavn: ");
         while (userNumber > 3) {
@@ -48,7 +48,7 @@ public class Main {
         return userNumber;
     }
 
-    public static void giveRespectiveMenuOptions(int userNumber, Admin[] users, ArrayList<SwimmingClubMember>allMembers, ArrayList<SwimmingClubMember>competitiveJuniors, ArrayList<SwimmingClubMember>competitiveSeniors){
+    public static void giveRespectiveMenuOptions(int userNumber, User[] users, ArrayList<SwimmingClubMember>allMembers, ArrayList<SwimmingClubMember>competitiveJuniors, ArrayList<SwimmingClubMember>competitiveSeniors){
         switch(userNumber){
             case 0 -> getChairmanMenu(users,allMembers);
             case 1 -> getCashierMenu(users,allMembers);
@@ -56,7 +56,7 @@ public class Main {
         }
     }
 
-    public static void getChairmanMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
+    public static void getChairmanMenu(User[] users, ArrayList<SwimmingClubMember> allMembers){
         Chairman cn = (Chairman) users[0];
         int userChoice = 0;
         while (userChoice!=3){
@@ -69,7 +69,7 @@ public class Main {
         }
     }
 
-    public static void getCashierMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers){
+    public static void getCashierMenu(User[] users, ArrayList<SwimmingClubMember> allMembers){
         Cashier cr = (Cashier) users[1];
         int userChoice = 0;
         while (userChoice!=4){
@@ -93,7 +93,7 @@ public class Main {
         }
     }
 
-    public static void getCoachMenu(Admin[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+    public static void getCoachMenu(User[] users, ArrayList<SwimmingClubMember> allMembers, ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         Coach ch = (Coach) users[2];
         int userChoice = 0;
         while (userChoice!=3){
