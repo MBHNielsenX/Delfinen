@@ -13,7 +13,7 @@ public class Junior extends SwimmingClubMember {
         super(name, address, email, phoneNumber, dateOfBirth, isActive);
         if (isActive){
             setArrears(1000);
-            setArrears(1000);
+            setContingent(1000);
         } else{
             setArrears(500);
             setContingent(500);
