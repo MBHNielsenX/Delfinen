@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class SwimmingClubMember {
-    private static ArrayList<Integer> existingMemberIds = new ArrayList<>();
+    private final static ArrayList<Integer> existingMemberIds = new ArrayList<>(); //Har skrevet final på
 
     private int memberId;
-    private String name;
+    private final String name; //Har skrevet final på name
     private String address;
     private String email;
     private int phoneNumber;

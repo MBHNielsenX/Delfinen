@@ -8,18 +8,19 @@ import Members.Base.SwimmingClubMember;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 
 
-public class Coach extends Admin{
+public class Coach extends User {
     public Coach(String userName, String password, String email) {
         super(userName, password, email);
     }
 
     public void registerNewTrainingTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        SwimmingClubMember currentMember = whichSwimmer(competitiveJuniors,competitiveSeniors);
+        SwimmingClubMember currentMember = findSwimmerFromID(competitiveJuniors,competitiveSeniors);
         String stroke =  whichStroke();
         LocalDate currentDate = LocalDate.now();
-        double time = timeOfSwim();
+        double time = timeToRegister();
 
         FileWriter.writeNewTrainingTime(currentMember,currentDate,stroke, time);
 
@@ -33,15 +34,15 @@ public class Coach extends Admin{
     }
 
     public void registerNewCompetitionTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        SwimmingClubMember currentMember = whichSwimmer(competitiveJuniors,competitiveSeniors);
-        Competition currentEvent = Competition.createNewCompetition();
+        SwimmingClubMember currentMember = findSwimmerFromID(competitiveJuniors,competitiveSeniors);
+        Competition currentEvent = createNewCompetition();
         String stroke = whichStroke();
-        double time = timeOfSwim();
+        double time = timeToRegister();
         System.out.println("Hvilken placering fik svømmeren ved konkurrencen?");
         int placering = GetUserInput.integer();
         FileWriter.writeNewCompetitionTime(currentMember,currentEvent,stroke,time,placering);
 
-        switch (stroke) {
+        switch (Objects.requireNonNull(stroke)) {
             case "butterfly" -> updateButterflyTime(currentMember, time);
             case "backstroke" -> updateBackstrokeTime(currentMember, time);
             case "breaststroke" -> updateBreaststrokeTime(currentMember, time);
@@ -49,11 +50,16 @@ public class Coach extends Admin{
         }
     }
 
-    public SwimmingClubMember whichSwimmer(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
+    public SwimmingClubMember findSwimmerFromID(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.menu(2);
-        System.out.println("Indtast MedlemsID for svømmeren du ønsker at registrere tid for: ");
-        int swimmerID = GetUserInput.integer();
+        int swimmerID = inputIdOrSeeList();
+
+        if (swimmerID == 0) {
+            printMemberAndId(competitiveJuniors,competitiveSeniors,juniorOrSenior);
+            swimmerID = inputIdOrSeeList();
+        }
+
         switch (juniorOrSenior) {
             case 1 -> {
                 return MemberHandler.getMemberFromId(swimmerID, competitiveJuniors);
@@ -62,6 +68,19 @@ public class Coach extends Admin{
                 return MemberHandler.getMemberFromId(swimmerID, competitiveSeniors);
             }
         } return null;
+    }
+
+    static void printMemberAndId (ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors, int juniorOrSenior) { //fjernet static
+        switch (juniorOrSenior) {
+            case 1 -> Chairman.printAllMembersNamesAndIds(competitiveJuniors);
+            case 2 -> Chairman.printAllMembersNamesAndIds(competitiveSeniors);
+        }
+    }
+
+    static int inputIdOrSeeList() { //fjernet public
+        System.out.println("Indtast ID nummer for den svømmer du ønsker at registrere en tid for  -  tast 0 for at se en liste over svømmere og deres ID");
+
+        return GetUserInput.integer();
     }
 
     public void registerNewTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time
@@ -77,15 +96,21 @@ public class Coach extends Admin{
         }
     }
 
-    public void checkFastestTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveMembers) {
+    static void updateFastestTimes(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveMembers) {
         FileWriter.updateJuniorsList(competitiveJuniors);
         FileWriter.updateSeniorsList(competitiveMembers);
     }
 
-    public boolean registerMoreTimes(){
+    static boolean registerMoreTimes(){
             System.out.println("Vil du registere flere svømmere?\nJa - Tast 1\t\tNej - Tast 2");
             int userInput = GetUserInput.integer();
             return userInput == 1;
+    }
+
+    static Competition createNewCompetition() {
+        System.out.println("Indtast navnet for det svømmestævne du har været til: ");
+        String nameOfEvent = GetUserInput.string();
+        return new Competition(nameOfEvent);
     }
 
     public String whichStroke(){
@@ -100,7 +125,7 @@ public class Coach extends Admin{
         return null;
     }
 
-    public double timeOfSwim(){
+    static double timeToRegister(){
         System.out.println("Indtast svømmerens resultat:");
         return GetUserInput.doubl();
     }
@@ -129,8 +154,8 @@ public class Coach extends Admin{
         }
     }
 
-    public void topFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
-        checkFastestTime(competitiveJuniors,competitiveSeniors);
+    public void displayTopFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
+        updateFastestTimes(competitiveJuniors,competitiveSeniors);
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.integer();
         System.out.println("Butterfly - Tast 1\t\tRygsvømning - Tast 2\nBrystsvømning - Tast 3\t\tCrawl - Tast 4");

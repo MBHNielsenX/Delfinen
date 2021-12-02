@@ -11,7 +11,7 @@ import java.time.Period;
 import java.util.ArrayList;
 
 
-public class Chairman extends Admin{
+public class Chairman extends User {
     public Chairman(String userName, String password, String email) {
         super(userName, password, email);
     }
@@ -53,7 +53,7 @@ public class Chairman extends Admin{
         }
     }
 
-    public PotentialMember newMember(){
+    static PotentialMember newMember(){ //ændret til static
         System.out.println("\nIndtast det nye medlems navn:");
         String name = GetUserInput.string();
         System.out.println("Indtast det nye medlems adresse:");
@@ -80,7 +80,7 @@ public class Chairman extends Admin{
         return Period.between(birthdate,currentDate).getYears();
     }
 
-    public static boolean isNewMemberCompetitive() {
+    static boolean isNewMemberCompetitive() { //ændret til static
         System.out.println("Ønsker det nye medlem at blive oprettet som konkurrencesvømmer?\nTast 1 for 'Ja' - Tast 2 for 'Nej'.");
         int userInput = GetUserInput.integer();
         return userInput == 1;
@@ -97,7 +97,7 @@ public class Chairman extends Admin{
 
     }
 
-    public void printAllMembersNamesAndIds(ArrayList<SwimmingClubMember> allMembers){
+    public static void printAllMembersNamesAndIds(ArrayList<SwimmingClubMember> allMembers){
         int listNo=1;
         for (SwimmingClubMember member:allMembers) {
             System.out.println(listNo+". Medlems-Id: "+member.getMemberId());
