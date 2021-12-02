@@ -132,19 +132,19 @@ public class Coach extends User {
     }
 
     static void updateBackstrokeTime(SwimmingClubMember currentMember, double newTime){
-        if (currentMember.getBackstrokeTime() > newTime && currentMember.getBackstrokeTime() == 0.0){
+        if (currentMember.getBackstrokeTime() > newTime || currentMember.getBackstrokeTime() == 0.0){
             currentMember.setBackstrokeTime(newTime);
         }
     }
 
     static void updateBreaststrokeTime(SwimmingClubMember currentMember, double newTime){
-        if (currentMember.getBreaststrokeTime() > newTime && currentMember.getBreaststrokeTime() == 0.0){
+        if (currentMember.getBreaststrokeTime() > newTime || currentMember.getBreaststrokeTime() == 0.0){
             currentMember.setBreaststrokeTime(newTime);
         }
     }
 
     static void updateFreestyleTime(SwimmingClubMember currentMember, double newTime){
-        if (currentMember.getFreestyleTime() > newTime && currentMember.getFreestyleTime() == 0.0){
+        if (currentMember.getFreestyleTime() > newTime || currentMember.getFreestyleTime() == 0.0){
             currentMember.setFreestyleTime(newTime);
         }
     }

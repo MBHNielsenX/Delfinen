@@ -1,16 +1,16 @@
 ID : 96331
 Name: Jens Legarth Ryge
-Butterfly: 0.0
+Butterfly: 1.21
 Rygsvømmning: 0.0
 Brystsvømmning: 0.0
-Crawl: 0.0
+Crawl: 1.52
 
 ID : 72960
 Name: Mikkel Meerwaldt Jørgensen
-Butterfly: 0.0
+Butterfly: 1.18
 Rygsvømmning: 0.0
 Brystsvømmning: 0.0
-Crawl: 0.0
+Crawl: 1.51
 
 ID : 70888
 Name: Mads Bøgh Højer Nielsen
@@ -33,10 +33,4 @@ Rygsvømmning: 0.0
 Brystsvømmning: 0.0
 Crawl: 0.0
 
-ID : 21580
-Name: Formel Ett Bent
-Butterfly: 0.0
-Rygsvømmning: 0.0
-Brystsvømmning: 0.0
-Crawl: 0.0
 

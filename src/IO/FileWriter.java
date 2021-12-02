@@ -23,7 +23,7 @@ public class FileWriter {
     public static void writeNewCompetitionTime(SwimmingClubMember clubMember, Competition competition, String disciplin, double time, int placering){
         try {
             BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/CompetitionTimes.txt",true));
-            writer.write(getCompetitionInfo(clubMember,competition,disciplin,time,placering));
+            writer.write(getCompetitionInfo(clubMember,competition,disciplin,time,placering)+"\n");
             writer.close();
         }catch (IOException e){
             e.printStackTrace();
@@ -33,7 +33,7 @@ public class FileWriter {
     public static void writeNewTrainingTime(SwimmingClubMember currentMember, LocalDate date, String disciplin, double time){
         try {
             BufferedWriter writer = new BufferedWriter(new java.io.FileWriter("src/Statistics/Memberlist/TrainingTimes.txt",true));
-            writer.write(getTrainingInfo(currentMember, date, disciplin, time));
+            writer.write(getTrainingInfo(currentMember, date, disciplin, time)+"\n");
             writer.close();
 
         }catch (IOException e){
