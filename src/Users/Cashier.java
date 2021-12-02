@@ -1,7 +1,6 @@
 //Jens' kode
 package Users;
 
-import IO.FileWriter;
 import Members.Base.SwimmingClubMember;
 import Members.MemberHandler;
 
