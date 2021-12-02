@@ -157,16 +157,6 @@ public class Coach extends User {
         }
     }
 
-
-
-
-
-
-
-
-
-
-    //Our little gem of redundancy <3
     public void displayTopFiveResults(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){
         System.out.println("For juniorsvømmere - Tast 1\t\tFor seniorsvømmere - Tast 2");
         int juniorOrSenior = GetUserInput.integer();
