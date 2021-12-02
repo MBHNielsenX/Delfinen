@@ -1,7 +1,5 @@
 //Jens' kode
-
 package UI;
-
 import IO.GetUserInput;
 import IO.FileReader;
 import Members.Base.SwimmingClubMember;
@@ -20,8 +18,10 @@ public class Main {
         ArrayList<SwimmingClubMember> allMembers = FileReader.getAllExistingMembersFromCsvToArrayList(FileReader.getExistingMemberDataToArrayList());
         ArrayList<SwimmingClubMember> juniorCompetitiveMembers = FileReader.getExistingCompetitiveJuniorsFromCsvToArrayList(FileReader.getAllCompetitiveJuniorsToArrayList());//test
         ArrayList<SwimmingClubMember> seniorCompetitiveMembers = FileReader.getExistingCompetitiveSeniorsFromCsvToArrayList(FileReader.getAllCompetitiveSeniorsToArrayList());//test
-        int userNumber = logInSequence(users);
-        giveRespectiveMenuOptions(userNumber,users,allMembers, juniorCompetitiveMembers, seniorCompetitiveMembers);
+        while (true){
+            int userNumber = logInSequence(users);
+            giveRespectiveMenuOptions(userNumber,users,allMembers, juniorCompetitiveMembers, seniorCompetitiveMembers);
+        }
     }
 
     public static int logInSequence(User[] users) {

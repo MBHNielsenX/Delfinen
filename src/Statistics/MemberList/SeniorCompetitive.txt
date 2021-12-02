@@ -19,3 +19,10 @@ Rygsvømmning: 0.0
 Brystsvømmning: 0.0
 Crawl: 0.0
 
+ID : 95511
+Name: John Mortensen Travolta
+Butterfly: 0.0
+Rygsvømmning: 0.0
+Brystsvømmning: 0.0
+Crawl: 0.0
+

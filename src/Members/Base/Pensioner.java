@@ -20,7 +20,4 @@ public class Pensioner extends SwimmingClubMember{
         }
 
     }
-    public Pensioner(int memberId, String name, double butterflyTime, double backstrokeTime, double breaststrokeTime, double freestyleTime) {
-        super (memberId,name,butterflyTime,backstrokeTime,breaststrokeTime,freestyleTime);
-    }
 }

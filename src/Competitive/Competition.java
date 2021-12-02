@@ -28,13 +28,7 @@ public class Competition {
 
     }
 
-
-
-    public LocalDate getTimeOfEvent() {
-        return timeOfEvent;
-    }
     public String getNameOfCompetition(){
         return nameOfCompetition;
     }
-
 }
