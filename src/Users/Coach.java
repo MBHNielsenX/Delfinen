@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 
-public class Coach extends Admin{
+public class Coach extends User {
     public Coach(String userName, String password, String email) {
         super(userName, password, email);
     }
@@ -53,8 +53,13 @@ public class Coach extends Admin{
     public SwimmingClubMember whichSwimmer(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors) {
         System.out.println("Tast 1 for juniorsvømmere eller 2 for seniorsvømmere!");
         int juniorOrSenior = GetUserInput.menu(2);
-        System.out.println("Hvilken svømmer vil du register en tid til?");
-        int swimmerID = GetUserInput.integer();
+        int swimmerID = inputIdOrSeeList();
+
+        if (swimmerID == 0) {
+            printMemberAndId(competitiveJuniors,competitiveSeniors,juniorOrSenior);
+            swimmerID = inputIdOrSeeList();
+        }
+
         switch (juniorOrSenior) {
             case 1 -> {
                 return MemberHandler.getMemberFromId(swimmerID, competitiveJuniors);
@@ -63,6 +68,19 @@ public class Coach extends Admin{
                 return MemberHandler.getMemberFromId(swimmerID, competitiveSeniors);
             }
         } return null;
+    }
+
+    public static void printMemberAndId (ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors, int juniorOrSenior) {
+        switch (juniorOrSenior) {
+            case 1 -> Chairman.printAllMembersNamesAndIds(competitiveJuniors);
+            case 2 -> Chairman.printAllMembersNamesAndIds(competitiveSeniors);
+        }
+    }
+
+    public static int inputIdOrSeeList() {
+        System.out.println("Indtast ID nummer for den svømmer du ønsker at registrere en tid for  -  tast 0 for at se en liste over svømmere og deres ID");
+
+        return GetUserInput.integer();
     }
 
     public void registerNewTime(ArrayList<SwimmingClubMember> competitiveJuniors, ArrayList<SwimmingClubMember> competitiveSeniors){ //Rename til competition time

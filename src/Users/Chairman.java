@@ -11,7 +11,7 @@ import java.time.Period;
 import java.util.ArrayList;
 
 
-public class Chairman extends Admin{
+public class Chairman extends User {
     public Chairman(String userName, String password, String email) {
         super(userName, password, email);
     }
@@ -97,7 +97,7 @@ public class Chairman extends Admin{
 
     }
 
-    public void printAllMembersNamesAndIds(ArrayList<SwimmingClubMember> allMembers){
+    public static void printAllMembersNamesAndIds(ArrayList<SwimmingClubMember> allMembers){
         int listNo=1;
         for (SwimmingClubMember member:allMembers) {
             System.out.println(listNo+". Medlems-Id: "+member.getMemberId());
