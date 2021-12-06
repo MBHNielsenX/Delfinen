@@ -1,8 +1,6 @@
 //Jens' kode
 package UI;
-import IO.FileWriter;
-import IO.GetUserInput;
-import IO.FileReader;
+import IO.*;
 import Members.Base.SwimmingClubMember;
 import Users.*;
 import java.util.ArrayList;

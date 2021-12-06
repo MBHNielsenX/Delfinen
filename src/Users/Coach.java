@@ -1,7 +1,8 @@
 package Users;
 
 import Competitive.Competition;
-import IO.*;
+import IO.FileWriter;
+import IO.GetUserInput;
 import Members.*;
 import Members.Base.SwimmingClubMember;
 
