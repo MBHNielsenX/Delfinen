@@ -1,24 +1,3 @@
-ID : 70888
-Name: Mads Bøgh Højer Nielsen
-Butterfly: 0.0
-Rygsvømmning: 0.0
-Brystsvømmning: 0.0
-Crawl: 0.0
-
-ID : 95511
-Name: John Mortensen Travolta
-Butterfly: 0.0
-Rygsvømmning: 0.0
-Brystsvømmning: 0.0
-Crawl: 0.0
-
-ID : 61881
-Name: Formel Ett Bent
-Butterfly: 0.0
-Rygsvømmning: 0.0
-Brystsvømmning: 0.0
-Crawl: 0.0
-
 ID : 72960
 Name: Mikkel Meerwaldt Jørgensen
 Butterfly: 1.18
@@ -32,4 +11,25 @@ Butterfly: 1.21
 Rygsvømmning: 0.0
 Brystsvømmning: 0.0
 Crawl: 1.52
+
+ID : 70888
+Name: Mads Bøgh Højer Nielsen
+Butterfly: 1.25
+Rygsvømmning: 0.0
+Brystsvømmning: 0.0
+Crawl: 0.0
+
+ID : 95511
+Name: John Mortensen Travolta
+Butterfly: 1.32
+Rygsvømmning: 0.0
+Brystsvømmning: 0.0
+Crawl: 0.0
+
+ID : 61881
+Name: Formel Ett Bent
+Butterfly: 1.53
+Rygsvømmning: 0.0
+Brystsvømmning: 0.0
+Crawl: 0.0
 

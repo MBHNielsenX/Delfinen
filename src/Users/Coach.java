@@ -142,7 +142,8 @@ public class Coach extends User {
     }
 
     public void printOutTopResults(ArrayList<SwimmingClubMember> currentList, String stroke){
-        for (SwimmingClubMember m: currentList) {
+        for (int i = 0; i < 5; i++) { // Top 5
+            SwimmingClubMember m = currentList.get(i);
             double timeToGet = 0.0;
             switch (stroke){
                 case "butterfly" -> timeToGet = m.getButterflyTime();
@@ -153,7 +154,7 @@ public class Coach extends User {
             if (timeToGet == 0.0) {System.out.print("");
             }
             else {
-                System.out.println("Svømmer: " + m.getName() + "'s bedste tid i "+stroke+" er: " + timeToGet + ".");
+                System.out.println("Tid nummer: "+(i+1)+" tilhørende svømmer: " + m.getName() + " i "+stroke+" er: " + timeToGet + ".");
             }
         }
     }
