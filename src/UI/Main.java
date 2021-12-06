@@ -14,9 +14,9 @@ public class Main {
                 new Coach("Mikkel", "dig", "jens.dk")};
 
         SwimmingClubMember.addExistingMemberIdsToStaticArraylist();
-        ArrayList<SwimmingClubMember> allMembers = FileReader.getAllExistingMembersFromCsvToArrayList(FileReader.getExistingMemberDataToArrayList());
-        ArrayList<SwimmingClubMember> juniorCompetitiveMembers = FileReader.getExistingCompetitiveJuniorsFromCsvToArrayList(FileReader.getAllCompetitiveJuniorsToArrayList());//test
-        ArrayList<SwimmingClubMember> seniorCompetitiveMembers = FileReader.getExistingCompetitiveSeniorsFromCsvToArrayList(FileReader.getAllCompetitiveSeniorsToArrayList());//test
+        ArrayList<SwimmingClubMember> allMembers = FileReader.getAllExistingMembers(FileReader.getExistingMemberDataToArrayList());
+        ArrayList<SwimmingClubMember> juniorCompetitiveMembers = FileReader.getExistingCompetitiveJuniors(FileReader.getAllCompetitiveJuniors());//test
+        ArrayList<SwimmingClubMember> seniorCompetitiveMembers = FileReader.getExistingCompetitiveSeniors(FileReader.getAllCompetitiveSeniors());//test
 
         while (true){
             int userNumber = logInSequence(users);

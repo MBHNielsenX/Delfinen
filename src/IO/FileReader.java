@@ -29,7 +29,7 @@ public class FileReader {
             e.printStackTrace();
         } return memberData;
     }
-    public static ArrayList<SwimmingClubMember> getAllExistingMembersFromCsvToArrayList(ArrayList<String> memberData) {
+    public static ArrayList<SwimmingClubMember> getAllExistingMembers(ArrayList<String> memberData) {
         ArrayList<SwimmingClubMember> existingMembers = new ArrayList<>();
 
         for (int i = 0; i < memberData.size(); i+=10) {
@@ -57,7 +57,7 @@ public class FileReader {
         return existingMembers;
     }
 
-    public static ArrayList<String> getAllCompetitiveJuniorsToArrayList() {
+    public static ArrayList<String> getAllCompetitiveJuniors() {
         ArrayList<String> juniorCompetitiveData = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/JuniorCompetitive.txt"));
@@ -78,7 +78,7 @@ public class FileReader {
         }
         return juniorCompetitiveData;
     }
-    public static ArrayList<SwimmingClubMember> getExistingCompetitiveJuniorsFromCsvToArrayList(ArrayList<String> memberCompetitiveData) {
+    public static ArrayList<SwimmingClubMember> getExistingCompetitiveJuniors(ArrayList<String> memberCompetitiveData) {
         ArrayList<SwimmingClubMember> existingCompetitiveJuniors = new ArrayList<>();
 
         for (int i = 0; i < memberCompetitiveData.size(); i+=6) {
@@ -95,7 +95,7 @@ public class FileReader {
         return existingCompetitiveJuniors;
     }
 
-    public static ArrayList<String> getAllCompetitiveSeniorsToArrayList() {
+    public static ArrayList<String> getAllCompetitiveSeniors() {
         ArrayList<String> seniorsCompetitiveData = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader("src/Statistics/MemberList/SeniorCompetitive.txt"));
@@ -116,7 +116,7 @@ public class FileReader {
         }
         return seniorsCompetitiveData;
     }
-    public static ArrayList<SwimmingClubMember> getExistingCompetitiveSeniorsFromCsvToArrayList(ArrayList<String> memberCompetitiveData) {
+    public static ArrayList<SwimmingClubMember> getExistingCompetitiveSeniors(ArrayList<String> memberCompetitiveData) {
         ArrayList<SwimmingClubMember> existingCompetitiveSeniors = new ArrayList<>();
 
         for (int i = 0; i < memberCompetitiveData.size(); i+=6) {
