@@ -1,3 +1,5 @@
+//Jens' kode
+
 package Users;
 
 public abstract class User {

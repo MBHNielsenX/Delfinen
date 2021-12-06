@@ -1,3 +1,5 @@
+//Mikkels kode
+
 package Competitive;
 
 public class Competition {

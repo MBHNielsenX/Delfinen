@@ -100,6 +100,7 @@ public class Chairman extends User {
 
     }
 
+    //Mads' kode
     public static void printAllMembersNamesAndIds(ArrayList<SwimmingClubMember> allMembers){
         int listNo=1;
         for (SwimmingClubMember member:allMembers) {

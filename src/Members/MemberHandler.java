@@ -1,3 +1,5 @@
+//Jens' kode
+
 package Members;
 
 import Members.Base.SwimmingClubMember;
